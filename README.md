@@ -12,5 +12,6 @@ Projeto realizado no módulo de Laravel do curso DevStart da be.academy em junho
 
 - [@BrunoApostolico](https://www.github.com/brunoapostolico)
 - [@Victorpessoa1](https://www.github.com/victorpessoa1)
+- [@EstefanyS2](https://github.com/EstefanyS2)
 - coloquem aqui o link de vcs...
 
