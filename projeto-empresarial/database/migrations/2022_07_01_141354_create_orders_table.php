@@ -10,11 +10,12 @@ class CreateOrdersTable extends Migration
      * Run the migrations.
      *
      * @return void
-     */
+     */  
     public function up()
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->string('id_user');
             $table->string('typepayment', 100);
             $table->dateTime('dtorder');
             $table->string('statuspayment', 100);
