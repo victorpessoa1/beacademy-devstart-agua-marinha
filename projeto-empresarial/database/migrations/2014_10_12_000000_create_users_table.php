@@ -22,13 +22,11 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
             $table->string('phone');
-            $table->integer('id_adress');
-            $table->integer('adress_number');
-            $table->string('adress_complement');
+            $table->string('address');
             $table->date('dtbirth');
             $table->string('cpf');
             $table->boolean('type');
-            $table->date('dtregister');
+
         });
     }
 
