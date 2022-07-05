@@ -16,4 +16,5 @@ Projeto realizado no módulo de Laravel do curso DevStart da be.academy em junho
 - [@FrancielAbreu](https://github.com/Francielabreu)
 - [@LeylaneMaciel](https://github.com/leylanemaciel)
 - [@Tiagow8](https://github.com/tiagow8)
+- [@DiegMelo](https://github.com/DiegMelo)
 
