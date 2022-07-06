@@ -29,7 +29,7 @@
                 <td>
                     
                     <a href="" class="btn btn-primary">Visualizar</a>
-                    <a href="" class="btn btn-info">Editar</a>
+                    
                 </td>
             </tr>
         @endforeach
