@@ -1,8 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\{
     UserController,
+    ProductController,
     ViaCepController
 };
 
@@ -18,8 +20,12 @@ Route::post('/user', [UserController::class, 'store'])->name('users.store');
 Route::get('/users',[UserController::class, 'index'])->name('users.index');
 Route::get('/users/{id}',[UserController::class, 'show'])->name('users.show');
 
+Route::get('/product', [ProductController::class, 'index'])->name('product.index');
+
 Route::get('/request',function (\Illuminate\Http\Request $request){
     dd($request);
     return 'x';
 });
+
+
 
