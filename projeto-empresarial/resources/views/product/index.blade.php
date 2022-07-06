@@ -1,4 +1,4 @@
-@extends('admin.template.app')
+@extends('template.app')
 @section('title', 'Listagem de Ativos')
 
 @section('content')
