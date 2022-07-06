@@ -7,6 +7,7 @@ use App\Http\Controllers\{
     ProductController,
     ViaCepController
 };
+use App\Models\Product;
 
 Route::get('/',function (){
     return view('welcome');
@@ -20,7 +21,15 @@ Route::post('/user', [UserController::class, 'store'])->name('users.store');
 Route::get('/users',[UserController::class, 'index'])->name('users.index');
 Route::get('/users/{id}',[UserController::class, 'show'])->name('users.show');
 
+
+/*--Produtos--*/
+Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
+Route::put('/Products/{id}', [ProductController::class, 'update'])->name('products.update');
+Route::get('/products/{id}edit', [ProductController::class, 'edit'])->name('products.edit');
+Route::get('/products/novo', [ProductController::class, 'create'])->name('products.create');
+Route::post('/products', [ProductController::class, 'store'])->name('products.store');
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
 
 Route::get('/request',function (\Illuminate\Http\Request $request){
     dd($request);
