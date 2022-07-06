@@ -20,7 +20,7 @@ Route::post('/user', [UserController::class, 'store'])->name('users.store');
 Route::get('/users',[UserController::class, 'index'])->name('users.index');
 Route::get('/users/{id}',[UserController::class, 'show'])->name('users.show');
 
-Route::get('/product', [ProductController::class, 'index'])->name('product.index');
+Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 
 Route::get('/request',function (\Illuminate\Http\Request $request){
     dd($request);

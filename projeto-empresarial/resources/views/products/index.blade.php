@@ -19,7 +19,7 @@
         @foreach ($product as $dataProduct)
             <tr>
                 <th scope="row">{{ $dataProduct->id }}</th>
-                <td>{{ $dataProduct->photo }}</td>
+                <td><img src="{{ $dataProduct->photo }}" width='80px'></td>
                 <td>{{ $dataProduct->name }}</td>
                 <td>{{ $dataProduct->description }}</td>
                 <td>{{ $dataProduct->quantity }}</td>
@@ -27,9 +27,9 @@
                 <td>{{ $dataProduct->saleprice }}</td>
 
                 <td>
-                    
+
                     <a href="" class="btn btn-primary">Visualizar</a>
-                    
+
                 </td>
             </tr>
         @endforeach

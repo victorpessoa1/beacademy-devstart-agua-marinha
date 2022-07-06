@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-   /* public function __construct(Product $product)
+   /* public function __construct(Product $products)
     {
-        $this->model = $product;
+        $this->model = $products;
     }
 
     */
@@ -17,8 +17,8 @@ class ProductController extends Controller
     public function index()
     {
 
-        $product = Product::all();      
-         return view('product.index', compact('product'));
+        $product = Product::all();
+         return view('products.index', compact('product'));
     }
 
 
