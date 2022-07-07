@@ -2,8 +2,8 @@
 @section('title', $title)
 @section('body')
 
-    <h1>Usuário {{ $user->id ." - ". $user->name }}</h1>
-
+    <h1>Dados do Usuário {{ $user->id ." - ". $user->name }}</h1>
+<br>
         <tbody class="text-center">
         <form class="row g-3">
             <div class="col-md-6">
@@ -35,9 +35,10 @@
                 <input type="text" class="form-control" id="type" value="{{ $user->type == 1 ? 'Admin' : 'Usuário' }}" readonly>
         </form>
 
-        <div class="container col-md-3">
+        <div class="col-md-3 mt-5">
                 <table class="table">
                         <tr>
+                            <th scope="col"><a href="{{ route('users.index', $user->id) }}" class="btn btn-sm btn-primary text-white">Voltar </a></th>
                             <th scope="col"><a href="{{ route('users.edit', $user->id) }}" class="btn btn-sm btn-warning text-white">Editar </a></th>
                             <th scope="col">
                                 <form action="{{ route('users.destroy', $user->id) }}" method="POST">

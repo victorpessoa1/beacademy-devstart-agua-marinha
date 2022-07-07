@@ -2,8 +2,8 @@
 @section('title', "Usuário {$user->name}")
 @section('body')
 
-    <h1>Usuário {{ $user->name }}</h1>
-
+    <h1>Editar Usuário: {{ $user->id ." - ". $user->name }}</h1>
+<br>
     @if($errors->any())
         <div class="alert alert-danger" role="alert">
             @foreach($errors->all() as $error)
@@ -28,10 +28,15 @@
             <input type="text" class="form-control" id="phone" name="phone" value="{{ $user->phone }}">
         </div>
         <div class="mb-3">
+            <label for="address" class="form-label">Endereço</label>
+            <input type="text" class="form-control" id="address" name="address" value="{{ $user->address }}">
+        </div>
+        <div class="mb-3">
             <label for="password" class="form-label">Senha</label>
             <input type="password" class="form-control" id="password" name="password">
         </div>
-        <button type="submit" class="btn btn-primary">Atualizar</button>
+        <a href="{{ route('users.index', $user->id) }}" class="btn btn-sm btn-primary text-white">Voltar </a>
+        <button type="submit" class="btn btn-success btn-sm">Atualizar</button>
     </form>
 
 @endsection
