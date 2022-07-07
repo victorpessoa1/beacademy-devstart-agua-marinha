@@ -17,10 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string('name',100);
             $table->string('description',100);
-            $table->float('quantity',8,6);
-            $table->float('price',8,4);
-            $table->float('saleprice',8,4);
-            $table->string('photo');
+            $table->float('quantity',15,6);
+            $table->float('price',15,6);
+            $table->float('saleprice',15,6);
+            $table->string('photo')->nullable();
             $table->timestamps();
         });
     }

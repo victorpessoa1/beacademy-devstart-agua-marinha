@@ -15,7 +15,7 @@
   <form action="{{ route('products.store') }}" method="POST">
     @csrf
         <div class="mb-3">
-            <label for="name" claa="form-label">Name</label>
+            <label for="name" claa="form-label">Nome da Crypto</label>
             <input type="text" class="form-control" id="name" name="name">
         </div>
         <div>
@@ -32,9 +32,13 @@
         </div>
         <div>
             <label for="name" class="form-label">Preço de Venda</label>
-            <input type="text" class="form-control" id="sale_price" name="sale_price">
+            <input type="text" class="form-control" id="saleprice" name="saleprice">
         </div>
-        <button type="submit" class="btn btn-outline-dark">Cadastrar</button>
-        <button type="submit" class="btn btn-outline-dark">Cancelar</a></button>
+      <div>
+          <label for="name" class="form-label">Foto</label>
+          <input type="text" class="form-control" id="photo" name="photo">
+      </div>
+        <button type="submit" class="btn btn-success mt-3">Cadastrar</button>
+        <button type="submit" class="btn btn-danger mt-3">Cancelar</button>
   </form>
 @endsection

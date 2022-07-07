@@ -20,7 +20,7 @@
         </div>
         <div>
             <label for="sale-price" class="form-label">Preço de venda</label>
-            <input type="text" class="form-control" id="sale_price" name="sale_price" value="{{ $sale_price }}" readonly>
+            <input type="text" class="form-control" id="sale_price" name="sale_price" value="{{ $saleprice }}" readonly>
         </div>
         <div>
             <label for="photo" class="form-label">Foto</label>
