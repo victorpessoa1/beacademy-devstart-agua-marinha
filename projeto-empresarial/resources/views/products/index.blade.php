@@ -1,12 +1,14 @@
-@extends('template.app')
+@extends('template.products')
 @section('title', 'Listagem de Ativos')
-@section('content')
+@section('body')
+
+    <h1>Listagem de Ativos</h1>
 
 <a href="{{ route('products.create') }}" class="btn btn-outline-dark">Adicionar Novos Produtos</a>
 <table class="table table-dark table-striped table-hover">
     <thead>
         <tr>
-            <th scope="col">#ID</th>
+            <th scope="col">ID</th>
             <th scope="col">IMAGEM</th>
             <th scope="col">NOME</th>
             <th scope="col">DESCRIÇÃO</th>
@@ -27,7 +29,7 @@
                 <td>{{ $dataProduct->price }}</td>
                 <td>{{ $dataProduct->sale_price }}</td>
                 <td>
-                    <a href="{{ route('products.show', $products->id) }}" class="btn btn-primary">Visualizar</a>
+                    <a href="{{ route('products.show', $dataProduct->id) }}" class="btn btn-primary">Visualizar</a>
                 </td>
             </tr>
         @endforeach
