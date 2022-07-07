@@ -24,8 +24,8 @@ class CreateProductFormRequest extends FormRequest
     public function rules()
     {
         $id = $this->id ??'';
-    
-      if($this->method('PUT')  || $this->method('POST'))  
+
+      if($this->method('PUT')  || $this->method('POST'))
       {
         $rules = [
             'names' => [
@@ -39,7 +39,7 @@ class CreateProductFormRequest extends FormRequest
                 'required',
             ],
 
-            'quantyti' => [
+            'quantity' => [
                 'required',
                 'max:20',
                 'min:5',

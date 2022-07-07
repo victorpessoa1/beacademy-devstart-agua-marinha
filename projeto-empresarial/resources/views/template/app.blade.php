@@ -27,7 +27,7 @@
                     <a class="nav-link text-dark" href="{{route('products.index')}}">Produtos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href="{{route('products.add')}}">Novo produto</a>
+                    <a class="nav-link text-dark" href="{{route('products.create')}}">Novo produto</a>
                 </li>
             </ul>
         </nav>
