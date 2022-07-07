@@ -23,12 +23,12 @@ class ProductController extends Controller
 
     public function show($id)
     {
-        if(!$product = Product::find($id))
+        if(!$products = Product::find($id))
           return redirect()->route('products.index');
 
-        $title = 'Produto ' .$product->name;
+        $title = 'Produto ' .$products->name;
 
-        return view('products.show', compact('product', 'title'));
+        return view('products.show', compact('products', 'title'));
     }
 
     public function create()
@@ -40,15 +40,15 @@ class ProductController extends Controller
     {
       $data = $request->all();
       $data['password'] = bcrypt($request->password);
-
+  
       $this->model->create($data);
-
+  
       return redirect()->route('products.index');
     }
 
     public function edit($id)
     {
-      if(!$products = $this->model->find($id))
+      if(!$products = $this->model->find($id)) 
         return redirect()->route('products.index');
 
       return view('product.edit', compact('products'));
@@ -56,14 +56,14 @@ class ProductController extends Controller
 
     public function update(CreateProductFormRequest $Request, $id)
     {
-      if (!$products = $this->model->find($id))
+      if (!$products = $this->model->find($id)) 
         return redirect()->route('products.index');
       $data = $Request->all();
 
-      if ($Request->password)
+      if ($Request->password) 
         $data['password'] = bcrypt($Request->password);
       $products->update($data);
-
+  
       return redirect()->route('products.index');
     }
 
@@ -71,9 +71,9 @@ class ProductController extends Controller
     {
       if (!$products = $this->model->find($id))
         return redirect()->route('products.index');
-
+  
         $products->delete();
-
+  
       return redirect()->route('products.index');
     }
   }
