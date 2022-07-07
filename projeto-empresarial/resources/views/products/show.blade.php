@@ -16,19 +16,19 @@
         </div>
         <div>
             <label for="price" class="form-label">Preço</label>
-            <input type="text" class="form-control" id="price" name="price" value="{{ $price }}" readonly>
+            <input type="text" class="form-control" id="price" name="price" value="{{ $products->price }}" readonly>
         </div>
         <div>
             <label for="sale-price" class="form-label">Preço de venda</label>
-            <input type="text" class="form-control" id="sale_price" name="sale_price" value="{{ $saleprice }}" readonly>
+            <input type="text" class="form-control" id="sale_price" name="sale_price" value="{{ $products->saleprice }}" readonly>
         </div>
         <div>
             <label for="photo" class="form-label">Foto</label>
-            <input type="text" class="form-control" id="photo" name="photo" value="{{ $photo }}" readonly>
+            <input type="text" class="form-control" id="photo" name="photo" value="{{ $products->photo }}" readonly>
         </div>
         <div>
             <label for="description" class="form-label">Descrição</label>
-            <input type="text" class="form-control" id="description" name="description" value="{{ $descripton }}" readonly>
+            <input type="text" class="form-control" id="description" name="description" value="{{ $products->descripton }}" readonly>
         </div>
     </form>
     <div class="col-md-3 mt-5">
