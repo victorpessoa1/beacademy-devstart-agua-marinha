@@ -28,7 +28,7 @@ class CreateProductFormRequest extends FormRequest
       if($this->method('PUT')  || $this->method('POST'))
       {
         $rules = [
-            'names' => [
+            'name' => [
                 'required',
                 'string',
                 'max:50',
@@ -42,7 +42,7 @@ class CreateProductFormRequest extends FormRequest
             'quantity' => [
                 'required',
                 'max:20',
-                'min:5',
+                'min:1',
             ],
 
             'price' => [
@@ -51,15 +51,15 @@ class CreateProductFormRequest extends FormRequest
                 'min:4',
             ],
 
-            'sale_price' => [
+            'saleprice' => [
                 'required',
                 'max:8',
                 'min:4',
             ],
 
             'photo' => [
-                'file',
-                'mimes:jpeg,png,jpg,gif,svg',
+//                'file',
+//                'mimes:jpeg,png,jpg,gif,svg',
             ],
 
         ];
