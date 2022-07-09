@@ -12,7 +12,7 @@
       </div>
       @endif
 
-  <form action="{{ route('products.store') }}" method="POST">
+  <form action="{{ route('products.store') }}" method="POST" enctype=”multipart/form-data”>
     @csrf
         <div class="mb-3">
             <label for="name" claa="form-label">Nome da Crypto</label>
@@ -35,8 +35,8 @@
             <input type="text" class="form-control" id="saleprice" name="saleprice">
         </div>
       <div>
-          <label for="name" class="form-label">Foto</label>
-          <input type="text" class="form-control" id="photo" name="photo">
+          <label for="image" class="form-label">Selecione uma imagem</label>
+          <input type="file" class="form-control" id="image" name="image"/>
       </div>
         <button type="submit" class="btn btn-success mt-3">Cadastrar</button>
         <button type="submit" class="btn btn-danger mt-3">Cancelar</button>

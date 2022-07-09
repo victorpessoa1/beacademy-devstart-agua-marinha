@@ -1,5 +1,5 @@
  @extends('template.app')
-@section('title', "Edditar {$products->name}")
+@section('title', "Editar {$products->name}")
 @section('body')
 
 <h1>Editar Produtos: {{ $product->id ." - ". $product->name }}</h1>
@@ -38,6 +38,10 @@
         <label for="description" class="form-label">Descrição</label>
         <input type="text" class="form-control" id="description" name="description">
     </div>
+    <div>
+          <label for="image" class="form-label">Selecione uma imagem</label>
+          <input type="file" class="form-control" id="image" name="image"/>
+      </div>
     <button type="submit" class="btn btn-primary mt-4">Atualizar</button>
 </form>
 @endsection

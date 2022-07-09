@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreateProductFormRequest;
 use Illuminate\Http\Request;
+use App\Http\Requests\CreateProductFormRequest;
 use App\Models\Product;
 
 
@@ -40,6 +40,12 @@ class ProductController extends Controller
     {
       $data = $request->all();
       $data['password'] = bcrypt($request->password);
+
+      if($request->image){
+        $file = $request['image'];
+        $path = $file->create('profile', 'public');
+        $data['image'] = $path;
+      }
   
       $this->model->create($data);
   

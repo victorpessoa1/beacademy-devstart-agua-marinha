@@ -19,10 +19,12 @@
         </tr>
     </thead>
     <tbody class="text-center">
-        @foreach ($products as $dataProduct)
+        @foreach($products as $dataProduct)
             <tr>
+                @if($dataProduct->image)
+                 <th><img src=" {{ asset('storage/' .$$dataProduct->image)}}" width="50px" height="50px" class="rounded-circle"/></th>
+                @endif
                 <th scope="row">{{ $dataProduct->id }}</th>
-                <td><img src="{{ $dataProduct->photo }}" width='80px'></td>
                 <td>{{ $dataProduct->name }}</td>
                 <td>{{ $dataProduct->description }}</td>
                 <td>{{ $dataProduct->quantity }}</td>

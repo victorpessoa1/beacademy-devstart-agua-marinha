@@ -20,7 +20,6 @@ return new class extends Migration
             $table->float('quantity',15,6);
             $table->float('price',15,6);
             $table->float('saleprice',15,6);
-            $table->string('photo')->nullable();
             $table->timestamps();
         });
     }
