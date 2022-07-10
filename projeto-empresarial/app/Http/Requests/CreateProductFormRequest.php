@@ -58,10 +58,10 @@ class CreateProductFormRequest extends FormRequest
             ],
 
             'image' => [
-//              'required',
-              'file',
-         //     'mimes:jpeg,png,jpg,gif,svg,webp',
+                'file',
+                'mimes:jpeg,png,jpg,gif,svg',
             ],
+
         ];
       }
 
