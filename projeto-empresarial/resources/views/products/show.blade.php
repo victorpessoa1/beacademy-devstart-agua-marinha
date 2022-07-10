@@ -1,48 +1,46 @@
-@extends('template.users')
+@extends('template.products')
 @section('title', $title)
 @section('body')
 
-<h1>Produtos {{ $products->id ." - ". $products->name }}</h1>
-<br>
-<tbody class="text-center">
-    <form class="row g-3">
-        <div class="row mt-5">
-            <label for="name" class="form-label">Nome</label>
-            <input type="text" id="name" class="form-control" name="name" value="{{ $products->name}}" readonly>
-        </div>
-        <div>
-            <label for="quantity" class="form-label">Quantidade</label>
-            <input type="text" class="form-control" id="quantity" name="quantity" value="{{ $products->quantity }}" readonly>
-        </div>
-        <div>
-            <label for="price" class="form-label">Preço</label>
-            <input type="text" class="form-control" id="price" name="price" value="{{ $products->price }}" readonly>
-        </div>
-        <div>
-            <label for="sale-price" class="form-label">Preço de venda</label>
-            <input type="text" class="form-control" id="sale_price" name="sale_price" value="{{ $products->saleprice }}" readonly>
-        </div>
-        <div>
-            <label for="photo" class="form-label">Foto</label>
-            <input type="text" class="form-control" id="photo" name="photo" value="{{ $products->photo }}" readonly>
-        </div>
-        <div>
-            <label for="description" class="form-label">Descrição</label>
-            <input type="text" class="form-control" id="description" name="description" value="{{ $products->descripton }}" readonly>
-        </div>
-    </form>
-    <div class="col-md-3 mt-5">
-        <table class="table">
+<div class="container">
+    <h1>Produtos {{ $products->name }}</h1>
+    <table class="table">
+        <thead class="text-center">
             <tr>
-                <th scope="col"><a href="{{ route('products.edit', $products->id) }}" class="btn btn-sm btn-warning text-white">Editar </a></th>
-                    <form action="{{ route('products.destroy', $products->id) }}" method="POST">
-                        @method('DELETE')
-                        @csrf
-                        <button type="submit" class="btn btn-sm btn-danger text-white">Excluir</button>
-                    </form>
-                </th>
+                <th scope="col">Id</th>
+                <th scope="col">Nome</th>
+                <th scope="col">imagem</th>
+                <th scope="col">Email</th>
+                <th scope="col">Descrição</th>
+                <th scope="col">QUANTIDADE</th>
+                <th scope="col">PREÇO</th>
+                <th scope="col">PREÇO DE VENDA</th>
+                <th scope="col">Visualizar</th>
+                <th scope="col">Deletar</th>
             </tr>
-        </table>
-    </div>
-</tbody>
+        </thead>
+        <tbody class="text-center">
+            <tr>
+                <th scope="row">{{ $products->id }}</th>
+                <td>{{ $products->name }}</td>
+                <td>{{ $products->imagem }}</td>
+                <td>{{ $products->email }}</td>
+                <td>{{ $products->description }}</td>
+                <td>{{ $products->quantity }}</td>
+                <td>{{ $products->price }}</td>
+                <td>{{ $products->saleprice }}</td>
+                <td>
+                    <a href="{{ route('products.edit', $products->id) }}" class="btn btn-warning text-white">Editar</a>
+                </td>
+                <td>
+                       <form action="{{ route('products.destroy', $products->id) }}" method="POST">
+                            @method('DELETE')
+                            @csrf
+                        <button type="submit" class="btn btn-sm btn-danger text-white">Deletar</button>
+                     </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 @endsection

@@ -41,6 +41,12 @@ class ProductController extends Controller
       $data = $request->all();
       $data['password'] = bcrypt($request->password);
   
+      if($request->image){
+        $file = $request['image'];
+        $path = $file->store('profile', 'public');
+        $data['image'] = $path;
+      }
+
       $this->model->create($data);
   
       return redirect()->route('products.index');
@@ -51,7 +57,7 @@ class ProductController extends Controller
       if(!$products = $this->model->find($id)) 
         return redirect()->route('products.index');
 
-      return view('product.edit', compact('products'));
+      return view('products.edit', compact('products'));
     }
 
     public function update(CreateProductFormRequest $Request, $id)

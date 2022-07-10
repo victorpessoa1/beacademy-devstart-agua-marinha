@@ -19,17 +19,21 @@
         </tr>
     </thead>
     <tbody class="text-center">
-        @foreach ($products as $dataProduct)
+        @foreach ($products as $product)
             <tr>
-                <th scope="row">{{ $dataProduct->id }}</th>
-                <td><img src="{{ $dataProduct->photo }}" width='80px'></td>
-                <td>{{ $dataProduct->name }}</td>
-                <td>{{ $dataProduct->description }}</td>
-                <td>{{ $dataProduct->quantity }}</td>
-                <td>{{ $dataProduct->price }}</td>
-                <td>{{ $dataProduct->saleprice }}</td>
+            @if($product->image)
+                 <th><img src=" {{ asset('storage/' .$product->image)}}" width="50px" height="50px" class="rounded-circle"/></th>
+                @else
+                  <th><img src=" {{ asset('storage/ .$profile/bitcoin.png') }}" width="50px" heidght="50px" class="rounded-circle"></th>
+                @endif
+                <th scope="row">{{ $product->id }}</th>
+                <td>{{ $product->name }}</td>
+                <td>{{ $product->description }}</td>
+                <td>{{ $product->quantity }}</td>
+                <td>{{ $product->price }}</td>
+                <td>{{ $product->saleprice }}</td>
                 <td>
-                    <a href="{{ route('products.show', $dataProduct->id) }}" class="btn btn-primary">Visualizar</a>
+                    <a href="{{ route('products.show', $product->id) }}" class="btn btn-primary">Visualizar</a>
                 </td>
             </tr>
         @endforeach
