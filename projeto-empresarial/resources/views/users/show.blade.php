@@ -38,13 +38,13 @@
     <div class="col-md-3 mt-5">
         <table class="table">
             <tr>
-                <th scope="col"><a href="{{ route('users.index', $user->id) }}" class="btn btn-sm btn-primary text-white">Voltar </a></th>
-                <th scope="col"><a href="{{ route('users.edit', $user->id) }}" class="btn btn-sm btn-warning text-white">Editar </a></th>
+                <th scope="col"><a href="{{ route('users.index', $user->id) }}" class="btn btn-sm btn-outline-primary">Voltar </a></th>
+                <th scope="col"><a href="{{ route('users.edit', $user->id) }}" class="btn btn-sm btn-outline-primary">Editar </a></th>
                 <th scope="col">
                     <form action="{{ route('users.destroy', $user->id) }}" method="POST">
                         @method('DELETE')
                         @csrf
-                        <button type="submit" class="btn btn-sm btn-danger text-white">Excluir </button>
+                        <button type="submit" class="btn btn-sm btn-outline-primary">Excluir </button>
                     </form>
                 </th>
             </tr>
