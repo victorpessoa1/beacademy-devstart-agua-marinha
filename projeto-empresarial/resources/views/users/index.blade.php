@@ -3,7 +3,7 @@
 @section('body')
 
     <h1>Listagem de Usuários</h1>
-    <a href="{{ route('users.create') }}" class="btn btn-sm btn-success">Novo Usuário</a>
+    <a href="{{ route('users.create') }}" class="btn btn-sm btn-outline-primary">Novo Usuário</a>
     <table class="table">
         <thead class="text-center">
         <tr>
@@ -23,10 +23,10 @@
                 <td>{{ $user->email }}</td>
                 <td>{{ $user->phone }}</td>
                 <td>{{ date('d/m/Y - H:i', strtotime($user->created_at)) }}</td>
-                <td><a href="{{ route('users.show', $user->id) }}" class="btn btn-sm btn-info text-white">Visualizar </a> </td>
+                <td><a href="{{ route('users.show', $user->id) }}" class="btn btn-sm btn-outline-primary">Visualizar </a> </td>
             </tr>
         @endforeach
         </tbody>
     </table>
-    
+
 @endsection
