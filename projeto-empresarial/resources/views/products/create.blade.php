@@ -39,7 +39,7 @@
     <label for="image" class="form-label">Selecione uma imagem</label>
     <input type="file" class="form-control" id="image" name="image" />
   </div>
-  <button type="submit" class="btn btn-success mt-3">Cadastrar</button>
-  <button type="submit" class="btn btn-danger mt-3">Cancelar</button>
+  <button type="submit" class="btn btn-sm btn-outline-primary mt-3">Cadastrar</button>
+  <button type="submit" class="btn btn-sm btn-outline-primary mt-3">Cancelar</button>
 </form>
 @endsection

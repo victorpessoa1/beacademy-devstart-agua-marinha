@@ -11,6 +11,7 @@
  </div>
  @endif
 
+
  <form action="{{ route('products.update', $products->id) }}" method="POST" enctype="multipart/form-data">
      @method('PUT')
      @csrf
@@ -38,6 +39,6 @@
          <label for="image" class="form-label">Selecione uma imagem</label>
          <input type="file" class="form-control" id="image" name="image" />
      </div>
-     <button type="submit" class="btn btn-primary mt-4">Atualizar</button>
+     <button type="submit" class="btn btn-sm btn-outline-primary mt-4">Atualizar</button>
  </form>
  @endsection
