@@ -9,6 +9,8 @@ use App\Http\Controllers\{
 };
 use App\Models\Product;
 
+require __DIR__.'/auth.php';
+
 Route::get('/',function (){
     return view('welcome');
 });
@@ -30,11 +32,6 @@ Route::get('/products/create', [ProductController::class, 'create'])->name('prod
 Route::post('/product', [ProductController::class, 'store'])->name('products.store');
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
-
-Route::get('/request',function (\Illuminate\Http\Request $request){
-    dd($request);
-    return 'x';
-});
 
 
 
