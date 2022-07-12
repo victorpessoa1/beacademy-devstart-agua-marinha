@@ -9,22 +9,17 @@
             <tr>
                 <th scope="col">Id</th>
                 <th scope="col">Nome</th>
-                <th scope="col">imagem</th>
-                <th scope="col">Email</th>
                 <th scope="col">Descrição</th>
                 <th scope="col">Quantidade</th>
                 <th scope="col">Preço</th>
                 <th scope="col">Preço de Venda</th>
                 <th scope="col" colspan="2" >Ações</th>
-
             </tr>
         </thead>
         <tbody class="text-center">
             <tr>
                 <th scope="row">{{ $products->id }}</th>
                 <td>{{ $products->name }}</td>
-                <td><img src="{{ $products->imagem }}" width="80px"></td>
-                <td>{{ $products->email }}</td>
                 <td>{{ $products->description }}</td>
                 <td>{{ $products->quantity }}</td>
                 <td>{{ $products->price }}</td>
