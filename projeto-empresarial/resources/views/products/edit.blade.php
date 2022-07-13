@@ -32,8 +32,8 @@
          <input type="text" class="form-control" id="price" name="price" value="{{ $products->price }}">
      </div>
      <div>
-         <label for="sale-price" class="form-label">Preço de venda</label>
-         <input type="text" class="form-control" id="sale_price" name="sale_price" value="{{ $products->saleprice }}">
+         <label for="saleprice" class="form-label">Preço de venda</label>
+         <input type="text" class="form-control" id="saleprice" name="saleprice" value="{{ $products->saleprice }}">
      </div>
      <div>
          <label for="image" class="form-label">Selecione uma imagem</label>
