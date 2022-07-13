@@ -17,7 +17,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div class="container">
                     <div class="row">
-                        <div class="col-10">
+                        <div class="col-9">
                             <ul class="navbar-nav mr-auto">
                                 <li class="nav-item active">
                                     <a class="nav-link text-white" href="/users">Usuarios</a>
@@ -28,12 +28,19 @@
                             </ul>
                         </div>
 
-                        <div class="col-2">
+                        <div class="col-3">
                             <ul class="navbar-nav mr-auto">
                                 @if (Auth::user())
                                     <li class="nav-item">
                                         <a class="nav-link text-white" href="#">{{ Auth::user()->name }}</a>
                                     </li>
+                                    @if(Auth::user()->is_admin == 1)
+                                    <li class="nav-item">
+                                        <a class="nav-link text-white" href="{{ route('admin') }}">Dashboard</a>
+                                    </li>
+                                    @endif
+                                    
+
                                     <li class="nav-item">
                                         <form method="POST" action="{{ route('logout') }}">
                                             @csrf
