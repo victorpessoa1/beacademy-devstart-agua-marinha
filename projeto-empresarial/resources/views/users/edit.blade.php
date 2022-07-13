@@ -35,8 +35,8 @@
             <label for="password" class="form-label">Senha</label>
             <input type="password" class="form-control" id="password" name="password">
         </div>
-        <a href="{{ route('users.index', $user->id) }}" class="btn btn-sm btn-primary text-white">Voltar </a>
-        <button type="submit" class="btn btn-success btn-sm">Atualizar</button>
+        <a href="{{ route('users.index', $user->id) }}" class="btn btn-sm btn-outline-primary">Voltar </a>
+        <button type="submit" class="btn btn-outline-primary btn-sm">Atualizar</button>
     </form>
 
 @endsection
