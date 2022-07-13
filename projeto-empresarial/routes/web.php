@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::middleware(['auth','admin'])->group(function (){
+    Route::get('/admin',[UserController::class, 'admin'])->name('admin');
+});
+
 
 Route::middleware(['auth'])->group(function () {
 
