@@ -1,4 +1,4 @@
-@extends('template.users')
+@extends('template.users_login')
 @section('title', 'Login')
 @section('body')
     <h1>Registrar-Se</h1>

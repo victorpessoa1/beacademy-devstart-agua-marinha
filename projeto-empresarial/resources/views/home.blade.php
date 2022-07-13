@@ -1,2 +1,2 @@
-@extends('template.users')
+@extends('template.users_login')
 @section('title', 'Home')
