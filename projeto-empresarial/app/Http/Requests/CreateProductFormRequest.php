@@ -48,13 +48,13 @@ class CreateProductFormRequest extends FormRequest
             'price' => [
                 'required',
                 'max:8',
-                'min:4',
+                'min:2',
             ],
 
             'saleprice' => [
                 'required',
                 'max:8',
-                'min:4',
+                'min:2',
             ],
 
             'image' => [
