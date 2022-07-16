@@ -13,7 +13,9 @@
                 <th scope="col">Quantidade</th>
                 <th scope="col">Preço</th>
                 <th scope="col">Preço de Venda</th>
+                @if (Auth::user()->is_admin == 1)
                 <th scope="col" colspan="2" >Ações</th>
+                @endif
             </tr>
         </thead>
         <tbody class="text-center">
@@ -24,6 +26,7 @@
                 <td>{{ $products->quantity }}</td>
                 <td>{{ $products->price }}</td>
                 <td>{{ $products->saleprice }}</td>
+                @if (Auth::user()->is_admin == 1)
                 <td>
                     <a href="{{ route('products.edit', $products->id) }}" class="btn btn btn-sm btn-outline-primary">Editar</a>
                 </td>
@@ -34,6 +37,7 @@
                         <button type="submit" class="btn btn-sm btn-outline-primary">Deletar</button>
                      </form>
                 </td>
+                @endif
             </tr>
         </tbody>
     </table>
