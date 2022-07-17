@@ -13,9 +13,7 @@
                 <th scope="col">Quantidade</th>
                 <th scope="col">Preço</th>
                 <th scope="col">Preço de Venda</th>
-                @if (Auth::user()->is_admin == 1)
                 <th scope="col" colspan="2" >Ações</th>
-                @endif
             </tr>
         </thead>
         <tbody class="text-center">
@@ -38,6 +36,9 @@
                      </form>
                 </td>
                 @endif
+                <td>
+                    <a href="{{ route('checkouts.show', $products->id) }}" class="btn btn btn-sm btn-outline-primary">Comprar</a>
+                </td>
             </tr>
         </tbody>
     </table>

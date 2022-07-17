@@ -2,79 +2,34 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Http\Requests\CreateCheckoutFormRequest;
 use App\Models\Checkout;
+use Illuminate\Http\Request;
+use App\Models\User;
 
 class CheckoutController extends Controller
 {
-    public function __construct(Checkout $checkout)
+    protected $user;
+    protected $checkout;
+
+    public function __construct(User $user, Checkout $checkout)
     {
-        $this->model = $checkout;
+        $this->user = $user;
+        $this->checkout = $checkout;
     }
     public function index()
     {
-        $checkouts = Checkout::all();
 
-        return view('checkouts.index', compact('checkouts'));
+        $checkouts = $this->checkout->all();
+
+        return view('checkouts.index',compact('checkouts'));
     }
-
-    public function show($id)
+    public function show($userId)
     {
-        if(!$checkouts = Checkout::find($id))
-            return redirect()->route('checkouts.index');
+        if(!$user = $this->user->find($userId))
+            return redirect()->back();
 
-        $title = 'Pedido ' .$checkouts->id;
+        $checkouts = $user->checkouts()->get();
 
-        return view('checkouts.show', compact('checkouts', 'title'));
+        return view ('checkouts.show',compact('user','checkouts'));
     }
-
-    public function create()
-    {
-        return view('checkouts.create');
-    }
-
-    public function store(CreateCheckoutFormRequest $request)
-    {
-        $data = $request->all();
-
-
-        if($request->image){
-            $file = $request['image'];
-            $path = $file->store('profile', 'public');
-            $data['image'] = $path;
-        }
-
-        $this->model->create($data);
-
-        return redirect()->route('checkouts.index');
-    }
-
-    public function edit($id)
-    {
-        if(!$checkouts = $this->model->find($id))
-            return redirect()->route('checkouts.index');
-
-        return view('checkouts.edit', compact('checkouts'));
-    }
-
-    public function update(CreateChechkoutFormRequest $Request, $id)
-    {
-        if (!$checkouts = $this->model->find($id))
-            return redirect()->route('checkouts.index');
-        $data = $Request->all();
-
-        return redirect()->route('checkouts.index');
-    }
-
-    public function destroy($id)
-    {
-        if (!$checkouts = $this->model->find($id))
-            return redirect()->route('checkouts.index');
-
-        $checkouts->delete();
-
-        return redirect()->route('checkouts.index');
-    }
-
 }
