@@ -12,9 +12,8 @@
             <th scope="col">Usuário</th>
             <th scope="col">Produto</th>
             <th scope="col">Quantidade</th>
-            <th scope="col">Preço de Venda</th>
             <th scope="col">Preço Total</th>
-            <th scope="col">Data Cadastro</th>
+            <th scope="col">Criado em</th>
 
         </tr>
         </thead>
@@ -25,8 +24,7 @@
                 <td>{{ $checkout->user->name }}</td>
                 <td>{{ $checkout->product->description }}</td>
                 <td>{{ $checkout->quantity }}</td>
-                <td>{{ $checkout->saleprice }}</td>
-                <td>{{ $checkout->saleprice * $checkout->quantity }}</td>
+                <td>{{ $checkout->amount }}</td>
                 <td>{{ date('d/m/Y - H:i', strtotime($checkout->created_at)) }}</td>
 
             </tr>
