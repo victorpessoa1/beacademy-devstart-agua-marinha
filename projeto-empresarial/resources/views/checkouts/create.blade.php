@@ -20,15 +20,15 @@
         </div>
         <div class="mb-3">
             <label for="product_id" class="form-label">Id do Produto</label>
-            <input type="text" class="form-control" id="product_id" name="product_id" value="">
+            <input type="text" class="form-control" id="product_id" name="product_id" value="{{$product->id}}">
         </div>
         <div>
             <label for="quantity" class="form-label">Quantidade</label>
-            <input type="number" class="form-control" id="quantity" name="quantity">
+            <input type="number" class="form-control" id="quantity" name="quantity"  value="{{$product->quantity}}">
         </div>
         <div>
             <label for="amount" class="form-label">Preço Total</label>
-            <input type="number" class="form-control" id="amount" name="amount">
+            <input type="number" class="form-control" id="amount" name="amount" value="{{$product->amount}}">
         </div>
         <div>
             <label for="statuspayment" class="form-label">Status</label>
