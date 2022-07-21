@@ -44,7 +44,7 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/checkouts/{id}', [CheckoutController::class, 'destroy'])->name('checkouts.destroy');
     Route::put('/checkouts/{id}', [CheckoutController::class, 'update'])->name('checkouts.update');
     Route::get('/checkouts/{id}/edit', [CheckoutController::class, 'edit'])->name('checkouts.edit');
-    Route::get('/checkouts/create', [CheckoutController::class, 'create'])->name('checkouts.create');
+    Route::get('/checkouts/{id}/create', [CheckoutController::class, 'create'])->name('checkouts.create');
     Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkouts.store');
     Route::get('/checkouts', [CheckoutController::class, 'index'])->name('checkouts.index');
     Route::get('/checkouts/{id}', [CheckoutController::class, 'show'])->name('checkouts.show');
