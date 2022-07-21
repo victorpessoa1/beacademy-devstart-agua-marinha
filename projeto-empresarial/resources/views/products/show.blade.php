@@ -24,6 +24,7 @@
                 <td>{{ $products->quantity }}</td>
                 <td>{{ $products->price }}</td>
                 <td>{{ $products->saleprice }}</td>
+                @if (Auth::user()->is_admin == 1)
                 <td>
                     <a href="{{ route('products.edit', $products->id) }}" class="btn btn btn-sm btn-outline-primary">Editar</a>
                 </td>
@@ -33,6 +34,12 @@
                             @csrf
                         <button type="submit" class="btn btn-sm btn-outline-primary">Deletar</button>
                      </form>
+                </td>
+                @endif
+                <td>
+                    
+                    <a href="{{ route('checkouts.create', ['id' => $products->id ]) }}" class="btn btn btn-sm btn-outline-primary">Comprar</a>
+                    
                 </td>
             </tr>
         </tbody>

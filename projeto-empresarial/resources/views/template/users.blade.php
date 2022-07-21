@@ -39,7 +39,7 @@
                                         <a class="nav-link text-white" href="{{ route('admin') }}">Dashboard</a>
                                     </li>
                                     @endif
-                                    
+
 
                                     <li class="nav-item">
                                         <form method="POST" action="{{ route('logout') }}">
@@ -67,7 +67,7 @@
         </nav>
         @yield('body')
     </div>
-    
+
 </body>
 
 </html>

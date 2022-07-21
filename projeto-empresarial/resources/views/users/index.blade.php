@@ -1,9 +1,11 @@
-@extends('template.users')
+@extends('template.products')
 @section('title', 'Listagem de Usuários')
 @section('body')
 
     <h1>Listagem de Usuários</h1>
+    @if(Auth::user()->is_admin == 1)
     <a href="{{ route('users.create') }}" class="btn btn-sm btn-outline-primary">Novo Usuário</a>
+    @endif
     <table class="table">
         <thead class="text-center">
         <tr>
