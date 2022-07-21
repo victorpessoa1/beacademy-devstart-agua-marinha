@@ -36,9 +36,13 @@ class CheckoutController extends Controller
 
         return view ('checkouts.show',compact('user','checkouts'));
     }
-    public function create()
+    public function create($id)
     {
-        return view('checkouts.create');
+        if(!$product = $this->product->find($id))
+            return redirect()->back();
+
+            
+        return view('checkouts.create', compact('product'));
     }
 
     public function store(CreateCheckoutFormRequest $request)
