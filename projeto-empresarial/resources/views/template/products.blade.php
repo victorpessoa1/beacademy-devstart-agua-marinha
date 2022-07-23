@@ -20,13 +20,13 @@
                                 <li class="nav-item active">
                                     <a class="nav-link text-white" href="/users">Usuários</a>
                                 </li>
-                                <li class="nav-item active">
-                                    <a class="nav-link text-white" href="/checkouts">Pedidos</a>
-                                </li>
                                 @endif
                                 <li class="nav-item">
                                     <a class="nav-link text-white" href="/products">Produtos</a>
                                 </li>
+                                    <li class="nav-item active">
+                                        <a class="nav-link text-white" href="{{ route('orders.show', Auth::user()->id) }}">Meus Pedidos</a>
+                                    </li>
                             </ul>
                         </div>
 

@@ -46,9 +46,9 @@ class User extends Authenticatable
         return $users;
     }
 
-    public function checkouts()
+    public function orders()
     {
-        return $this->hasMany(Checkout::class);
+        return $this->hasMany(Order::class);
     }
 
 }

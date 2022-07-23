@@ -50,7 +50,7 @@ class OrderController extends Controller
         $data = $request->all();
         $this->model->create($data);
 
-        return redirect()->route('orders.index');
+        return redirect()->route('products.index');
     }
 
     public function edit($id)
