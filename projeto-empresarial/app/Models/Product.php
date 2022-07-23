@@ -11,5 +11,8 @@ class Product extends Model
 
     protected $fillable = ['image','name', 'description','quantity','price','saleprice'];
 
-
+    public function checkouts()
+    {
+        return $this->hasMany(Checkout::class);
+    }
 }

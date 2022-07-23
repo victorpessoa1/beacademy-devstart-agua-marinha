@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
     UserController,
     ProductController,
+    CheckoutController,
     ViaCepController
 };
 use App\Models\Product;
@@ -22,7 +23,6 @@ Route::middleware(['auth','admin'])->group(function (){
 
 Route::middleware(['auth'])->group(function () {
 
-
     Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
     Route::put('/users/{id}', [UserController::class, 'update'])->name('users.update');
     Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
@@ -30,7 +30,6 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/user', [UserController::class, 'store'])->name('users.store');
     Route::get('/users', [UserController::class, 'index'])->name('users.index');
     Route::get('/users/{id}', [UserController::class, 'show'])->name('users.show');
-
 
     /*--Produtos--*/
     Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
@@ -40,4 +39,13 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/product', [ProductController::class, 'store'])->name('products.store');
     Route::get('/products', [ProductController::class, 'index'])->name('products.index');
     Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
+
+    /*--Pedidos--*/
+    Route::delete('/checkouts/{id}', [CheckoutController::class, 'destroy'])->name('checkouts.destroy');
+    Route::put('/checkouts/{id}', [CheckoutController::class, 'update'])->name('checkouts.update');
+    Route::get('/checkouts/{id}/edit', [CheckoutController::class, 'edit'])->name('checkouts.edit');
+    Route::get('/checkouts/{id}/create', [CheckoutController::class, 'create'])->name('checkouts.create');
+    Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkouts.store');
+    Route::get('/checkouts', [CheckoutController::class, 'index'])->name('checkouts.index');
+    Route::get('/checkouts/{id}', [CheckoutController::class, 'show'])->name('checkouts.show');
 });

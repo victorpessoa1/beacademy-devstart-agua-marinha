@@ -3,8 +3,9 @@
 @section('body')
 
     <h1>Listagem de Ativos</h1>
-
+    @if(Auth::user()->is_admin == 1)
     <a href="{{ route('products.create') }}" class="btn btn-sm btn-outline-primary mb-3">Adicionar Novos Produtos</a>
+    @endif
     <table class="table table-hover">
         <thead class="text-center">
             <tr>

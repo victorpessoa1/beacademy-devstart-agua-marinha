@@ -16,7 +16,7 @@
 <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
   @csrf
   <div class="mb-3">
-    <label for="name" claa="form-label">Nome da Crypto</label>
+    <label for="name" class="form-label">Nome da Crypto</label>
     <input type="text" class="form-control" id="name" name="name">
   </div>
   <div>

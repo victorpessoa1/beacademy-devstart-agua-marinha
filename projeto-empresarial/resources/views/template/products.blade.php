@@ -16,9 +16,14 @@
                     <div class="row">
                         <div class="col-9">
                             <ul class="navbar-nav mr-auto">
+                                @if(Auth::user()->is_admin == 1)
                                 <li class="nav-item active">
-                                    <a class="nav-link text-white" href="/users">Usuarios</a>
+                                    <a class="nav-link text-white" href="/users">Usuários</a>
                                 </li>
+                                <li class="nav-item active">
+                                    <a class="nav-link text-white" href="/checkouts">Pedidos</a>
+                                </li>
+                                @endif
                                 <li class="nav-item">
                                     <a class="nav-link text-white" href="/products">Produtos</a>
                                 </li>
@@ -36,7 +41,7 @@
                                         <a class="nav-link text-white" href="{{ route('admin') }}">Dashboard</a>
                                     </li>
                                     @endif
-                                    
+
 
                                     <li class="nav-item">
                                         <form method="POST" action="{{ route('logout') }}">

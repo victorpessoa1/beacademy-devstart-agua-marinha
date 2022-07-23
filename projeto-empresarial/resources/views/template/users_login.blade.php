@@ -56,7 +56,7 @@
         </nav>
         @yield('body')
     </div>
-    
+
 </body>
 
 </html>
