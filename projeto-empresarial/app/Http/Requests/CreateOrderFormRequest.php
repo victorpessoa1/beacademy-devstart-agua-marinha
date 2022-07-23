@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateCheckoutFormRequest extends FormRequest
+class CreateOrderFormRequest extends FormRequest
 {
     public function authorize()
     {
@@ -18,9 +18,6 @@ class CreateCheckoutFormRequest extends FormRequest
         if($this->method('PUT')  || $this->method('POST'))
         {
             $rules = [
-                'amount' => [
-                    'required'
-                ],
                 'quantity' => [
                     'required'
                 ],

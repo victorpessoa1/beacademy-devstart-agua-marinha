@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
     UserController,
     ProductController,
-    CheckoutController,
+    OrderController,
     ViaCepController
 };
 use App\Models\Product;
@@ -41,11 +41,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
 
     /*--Pedidos--*/
-    Route::delete('/checkouts/{id}', [CheckoutController::class, 'destroy'])->name('checkouts.destroy');
-    Route::put('/checkouts/{id}', [CheckoutController::class, 'update'])->name('checkouts.update');
-    Route::get('/checkouts/{id}/edit', [CheckoutController::class, 'edit'])->name('checkouts.edit');
-    Route::get('/checkouts/{id}/create', [CheckoutController::class, 'create'])->name('checkouts.create');
-    Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkouts.store');
-    Route::get('/checkouts', [CheckoutController::class, 'index'])->name('checkouts.index');
-    Route::get('/checkouts/{id}', [CheckoutController::class, 'show'])->name('checkouts.show');
+    Route::delete('/orders/{id}', [OrderController::class, 'destroy'])->name('orders.destroy');
+    Route::put('/orders/{id}', [OrderController::class, 'update'])->name('orders.update');
+    Route::get('/orders/{id}/edit', [OrderController::class, 'edit'])->name('orders.edit');
+    Route::get('/orders/{id}/create', [OrderController::class, 'create'])->name('orders.create');
+    Route::post('/order', [OrderController::class, 'store'])->name('orders.store');
+    Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
+    Route::get('/orders/{id}', [OrderController::class, 'show'])->name('orders.show');
 });

@@ -37,9 +37,9 @@
                 </td>
                 @endif
                 <td>
-                    
-                    <a href="{{ route('checkouts.create', ['id' => $products->id ]) }}" class="btn btn btn-sm btn-outline-primary">Comprar</a>
-                    
+
+                    <a href="{{ route('orders.create', ['id' => $products->id ]) }}" class="btn btn btn-sm btn-outline-primary">Comprar</a>
+
                 </td>
             </tr>
         </tbody>

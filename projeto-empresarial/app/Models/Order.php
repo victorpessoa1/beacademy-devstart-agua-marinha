@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Checkout extends Model
+class Order extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id','product_id','quantity', 'amount','statuspayment'];
+    protected $fillable = ['user_id','product_id','quantity'];
 
     public function user()
     {

@@ -18,14 +18,14 @@
         </tr>
         </thead>
         <tbody class="text-center">
-        @foreach($checkouts as $checkout)
+        @foreach($orders as $order)
             <tr>
-                <th scope="row">{{ $checkout->id }}</th>
-                <td>{{ $checkout->user->name }}</td>
-                <td>{{ $checkout->product->description }}</td>
-                <td>{{ $checkout->quantity }}</td>
-                <td>{{ $checkout->amount }}</td>
-                <td>{{ date('d/m/Y - H:i', strtotime($checkout->created_at)) }}</td>
+                <th scope="row">{{ $order->id }}</th>
+                <td>{{ $order->user->name }}</td>
+                <td>{{ $order->product->description }}</td>
+                <td>{{ $order->quantity }}</td>
+                <td>{{ $order->product->saleprice * $order->quantity }}</td>
+                <td>{{ date('d/m/Y - H:i', strtotime($order->created_at)) }}</td>
 
             </tr>
         @endforeach
