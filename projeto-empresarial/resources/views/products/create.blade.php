@@ -17,7 +17,7 @@
   @csrf
   <div class="mb-3">
     <label for="name" class="form-label">Nome da Crypto</label>
-    <input type="text" class="form-control" id="name" name="name">
+    <input type="text" class="form-control" id="name" name="name" aria-describedby="Name">
   </div>
   <div>
     <label for="description" class="form-label">Descrição</label>

@@ -50,6 +50,8 @@ class OrderController extends Controller
         $data = $request->all();
         $this->model->create($data);
 
+        $request->session()->flash('create', 'Pedido adicionada no carinho com sucesso!');
+
         return redirect()->route('products.index');
     }
 
@@ -68,14 +70,18 @@ class OrderController extends Controller
 
         $orders->update($data);
 
+        $Request->session()->flash('update', 'Pedido atualizado com Sucesso!');
+
         return redirect()->route('orders.index');
     }
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         if (!$orders = $this->model->find($id))
             return redirect()->route('orders.index');
 
         $orders->delete();
+
+        $request->session()->flash('destroy', 'Pedido excluido com Sucesso!');
 
         return redirect()->route('orders.index');
     }

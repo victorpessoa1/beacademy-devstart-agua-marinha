@@ -14,7 +14,7 @@ class ProductController extends Controller
         $this->model = $product;
     }
 
-    public function index()
+    public function index(Request $request)
     {
         $products = Product::all();
 
@@ -36,18 +36,18 @@ class ProductController extends Controller
         return view('products.create');
     }
 
-    public function store(CreateProductFormRequest $request)
+    public function store(CreateProductFormRequest $Request)
     {
-      $data = $request->all();
-      $data['password'] = bcrypt($request->password);
-  
-      if($request->image){
-        $file = $request['image'];
+      $data = $Request->all();
+      if($Request->image){
+        $file = $Request['image'];
         $path = $file->store('profile', 'public');
         $data['image'] = $path;
       }
 
       $this->model->create($data);
+
+      $Request->session()->flash('create', 'Produto cadastrado com sucesso!');
   
       return redirect()->route('products.index');
     }
@@ -69,8 +69,9 @@ class ProductController extends Controller
       if ($Request->password) 
         $data['password'] = bcrypt($Request->password);
       $products->update($data);
+    
   
-      return redirect()->route('products.index');
+      return redirect()->route('products.index')->with('edit', 'Produto atualizados com sucesso!');
     }
 
     public function destroy($id)
@@ -80,6 +81,6 @@ class ProductController extends Controller
   
         $products->delete();
   
-      return redirect()->route('products.index');
+      return redirect()->route('products.index')->with('destroy', 'Produto deletado com sucesso!');
     }
   }
