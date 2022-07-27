@@ -14,7 +14,7 @@ class UserController extends Controller
         $this->model = $user;
     }
 
-    public function index()
+    public function index(Request $request)
     {
         $users = User::all();
         return view ('users.index', compact('users'));
@@ -41,6 +41,8 @@ class UserController extends Controller
 
         $this->model->create($data);
 
+        $request->session()->flash('create', 'Usuário cadastrado com sucesso!');
+        
         return redirect()->route('users.index');
     }
 
@@ -62,7 +64,7 @@ class UserController extends Controller
             $data['password']= bcrypt($request->password);
         $user->update($data);
 
-        return redirect()->route('users.index');
+        return redirect()->route('users.index')->with('edit', 'Usuário atualizado com sucesso!');
     }
 
     public function destroy($id)
@@ -72,7 +74,7 @@ class UserController extends Controller
 
         $user->delete();
 
-        return redirect()->route('users.index');
+        return redirect()->route('users.index')->with('destroy', 'Usuário deletado com sucesso!');
     }
 
     public function admin()

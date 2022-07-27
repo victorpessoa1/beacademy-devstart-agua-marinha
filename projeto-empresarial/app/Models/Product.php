@@ -9,7 +9,16 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['image','name', 'description','quantity','price','saleprice'];
+    public $timestamps = false; 
+
+    protected $fillable = [
+        'image',
+        'name', 
+        'description',
+        'quantity',
+        'price',
+        'saleprice'
+    ];
 
     public function checkouts()
     {
