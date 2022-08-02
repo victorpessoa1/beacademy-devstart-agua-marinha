@@ -50,7 +50,7 @@ class OrderController extends Controller
         $data = $request->all();
         $this->model->create($data);
 
-        $request->session()->flash('create', 'Pedido adicionada no carinho com sucesso!');
+        $request->session()->flash('create', 'Pedido adicionado no carinho com sucesso!');
 
         return redirect()->route('products.index');
     }
