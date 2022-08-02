@@ -14,10 +14,6 @@ return new class extends Migration
                 ->constrained('users')
                 ->onDelete('CASCADE')
                 ->onUpdate('CASCADE');
-            $table->foreignId('product_id')
-                ->constrained('products')
-                ->onDelete('CASCADE')
-                ->onUpdate('CASCADE');
             $table->float('quantity');
             $table->timestamps();
         });
