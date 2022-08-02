@@ -6,7 +6,7 @@ use App\Http\Controllers\{
     UserController,
     ProductController,
     OrderController,
-    ViaCepController
+    CheckouController
 };
 use App\Models\Product;
 
@@ -14,6 +14,10 @@ require __DIR__ . '/auth.php';
 
 Route::get('/', function () {
     return view('home');
+});
+
+Route::get('/layout', function () {
+    return view('template/layout_new');
 });
 
 Route::middleware(['auth','admin'])->group(function (){
@@ -48,4 +52,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/order', [OrderController::class, 'store'])->name('orders.store');
     Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
     Route::get('/users/{id}/orders', [OrderController::class, 'show'])->name('orders.show');
+
+    Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
+    Route::post('/checkout', [CheckoutController::class, 'index'])->name('checkout.index.post');
+    Route::get('/checkout/{id}',[CheckoutController::class,'show'])->name('checkout.show');
 });
