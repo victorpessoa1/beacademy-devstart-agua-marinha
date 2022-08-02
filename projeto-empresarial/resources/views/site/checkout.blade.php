@@ -14,15 +14,15 @@
                                 Boleto
                             </button>
                             <button onclick="showCard()" type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-20 rounded">
-                                Cartão 
+                                Cartão
                             </button>
                         </div>
                     </div>
                 </div>
 
                 <div id="paymentCard" style="display: none;" >
-                    
-                    <h1 class="font-mono text-2xl text-center py-5 bg-white">Pagamento por cartão de crédito</h1>
+
+                    <h1 class="text-2xl text-center py-5 bg-white">Informe seus dados</h1>
                     <form class="mt-6"  action="{{ route('paylivre.create') }}" method="POST">
                         @csrf
                         <input type="hidden" >
@@ -67,9 +67,9 @@
                                 <input type="text" name="cvv" id="cvv" autocomplete="csc" class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
                             </div>
                             </div>
-                            <input type="hidden" name="transaction_type" value="card" /> 
-                            <input type="hidden" name="transaction_amount" value="{{ $order[0]['amount'] }}" /> 
-                            <input type="hidden" name="transaction_installments" value="2" /> 
+                            <input type="hidden" name="transaction_type" value="card" />
+                            <input type="hidden" name="transaction_amount" value="{{ $order[0]['amount'] }}" />
+                            <input type="hidden" name="transaction_installments" value="2" />
                         </div>
 
                         <button type="submit" class="w-full mt-6 bg-green-600 border border-transparent rounded-md shadow-sm py-2 px-4 text-sm font-medium text-white hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:bg-green-500">Pagar R$ {{ formatMoney($order[0]['amount']) }}</button>
@@ -83,13 +83,13 @@
                         </p>
 
 
-                        <div class="flex justify-center mt-10 gap-20"> 
+                        <div class="flex justify-center mt-10 gap-20">
                             <img src="https://i.ibb.co/nQy8Gth/visa.png" alt="Visa" class="h-12 w-30 ">
                             <img src="https://i.ibb.co/zhSQJct/master.png" alt="Master" class="h-12 w-30 ">
                             <img src="https://i.ibb.co/Sy4pSgH/paylivre.png" alt="Master" class="h-12 w-30 ">
                         </div>
 
-                        <div class="flex justify-center mt-5"> 
+                        <div class="flex justify-center mt-5">
                             <img src="https://i.ibb.co/DfRjHVT/safe2.webp" alt="Protected" class="h-15 w-30">
                         </div>
                     </form>
@@ -97,10 +97,10 @@
 
 
                 </div>
-                
+
 
                 <div id="paymentTicket" style="display: none;">
-                    <h2 class="font-mono text-2xl text-center py-5 bg-white">Pagamento por Boleto</h2>
+                    <h2 class="text-2xl text-center py-5 bg-white">Informe seus dados</h2>
                     <form class="mt-6" action="{{ route('payment.ticket') }}" method="POST">
                         @csrf
                         <div class="grid grid-cols-12 gap-y-6 gap-x-4">
@@ -169,13 +169,13 @@
                                 <input type="text" name="address_country" id="address_country" class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
                             </div>
                             </div>
-                            
+
                         </div>
 
-                        <input type="hidden" name="transaction_type" value="ticket" /> 
-                        <input type="hidden" name="order_id" value="{{ $order[0]['id'] }}" /> 
-                        <input type="hidden" name="transaction_amount" value="{{ $order[0]['amount'] }}" /> 
-                        <input type="hidden" name="transaction_installments" value="2" /> 
+                        <input type="hidden" name="transaction_type" value="ticket" />
+                        <input type="hidden" name="order_id" value="{{ $order[0]['id'] }}" />
+                        <input type="hidden" name="transaction_amount" value="{{ $order[0]['amount'] }}" />
+                        <input type="hidden" name="transaction_installments" value="2" />
 
                         <button type="submit" class="w-full mt-6 bg-green-600 border border-transparent rounded-md shadow-sm py-2 px-4 text-sm font-medium text-white hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:bg-green-500">Gerar Boleto</button>
 
@@ -188,19 +188,19 @@
                         </p>
 
 
-                        <div class="flex justify-center mt-10 gap-20"> 
+                        <div class="flex justify-center mt-10 gap-20">
                             <img src="https://i.ibb.co/nQy8Gth/visa.png" alt="Visa" class="h-12 w-30 ">
                             <img src="https://i.ibb.co/zhSQJct/master.png" alt="Master" class="h-12 w-30 ">
                             <img src="https://i.ibb.co/Sy4pSgH/paylivre.png" alt="Master" class="h-12 w-30 ">
 
                         </div>
 
-                        <div class="flex justify-center mt-5"> 
+                        <div class="flex justify-center mt-5">
                             <img src="https://i.ibb.co/DfRjHVT/safe2.webp" alt="Protected" class="h-15 w-30">
                         </div>
                     </form>
                 </div>
-                
+
             </div>
         </section>
 @endsection

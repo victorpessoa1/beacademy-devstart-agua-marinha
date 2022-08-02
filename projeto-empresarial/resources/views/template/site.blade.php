@@ -67,7 +67,7 @@
                             lg:mt-0
                             mr-1
                         " href="/">
-                        <img src="{{url('/logo/logo-ebook.png')}}" style="height: 30px" alt=""
+                        <img src="{{url('/logo/logo.jpg')}}" style="height: 30px" alt=""
                         loading="lazy" />
                     </a>
                 </div>

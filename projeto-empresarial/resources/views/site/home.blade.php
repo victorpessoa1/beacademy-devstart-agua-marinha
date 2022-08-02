@@ -9,7 +9,7 @@
          <svg class="flex-shrink-0 w-5 h-5 text-green-700 dark:text-green-800" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
          <div class="ml-3 text-sm font-medium text-green-700 dark:text-green-800">
                <span>{{ session()->get('addcart') }}</span> -
-               <a href="{{ route('cart.index')}}"><strong class="font-bold">Clique para acessar seu Carrinho</strong></a>
+               <a href="{{ route('cart.index')}}"><strong class="font-bold">Acesse seu Carrinho</strong></a>
          </div>
          <button type="button" class="ml-auto -mx-1.5 -my-1.5 bg-green-100 text-green-500 rounded-lg focus:ring-2 focus:ring-green-400 p-1.5 hover:bg-green-200 inline-flex h-8 w-8 dark:bg-green-200 dark:text-green-600 dark:hover:bg-green-300" data-dismiss-target="#alert-3" aria-label="Close">
             <span class="sr-only">Fechar</span>
@@ -32,75 +32,24 @@
       </div>
    </div>
 @endif
-
+<div class="container mx-auto px-60 py-8">
+    <h1 class=" text-3xl text-center py-8 bg-white">E-commerce de Crypto Moedas</h1>
+    <hr>
+</div>
 <div class="container mx-auto px-60" style="margin-top:-35px;">
    <div id="carouselExampleIndicators" class="carousel slide relative" data-bs-ride="carousel">
       <div class="carousel-indicators absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-4">
-         <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="0"
-            class="active"
-            aria-current="true"
-            aria-label="Slide 1">
-         </button>
-         <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="1"
-            aria-label="Slide 2" >
-         </button>
-         <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="2" >
-         </button>
       </div>
-      <div class="carousel-inner relative w-full overflow-hidden">
-         <div class="carousel-item active float-left w-full">
-            <img
-            src="https://www.infomoney.com.br/wp-content/uploads/2021/08/Criptos-e1628873886287.jpg?resize=854%2C515&quality=50&strip=all"
-            class="block w-full"
-            alt="Fique Rico"/>
-         </div>
-         <div class="carousel-item float-left w-full">
+      <div class="carousel-inner relative w-auto overflow-hidden">
+         <div class="carousel-item active float-none w-full">
             <img
             src="https://fia.com.br/wp-content/uploads/2022/06/criptomoedas-o-que-sao-para-que-servem-como-investir.jpg"
             class="block w-full"
             alt="Fique Mais" />
          </div>
-         <div class="carousel-item float-left w-full">
-            <img
-            src="https://www.acessa.com/tecnologia/arquivo/noticias/2022/07/29-criptomoedas-mineracao-ethereum-lucrativa-brasil/foto.jpg"
-            class="block w-full"
-            alt="Se torne milhonario"/>
-         </div>
       </div>
-      <button
-         class="carousel-control-prev absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline left-0"
-         type="button"
-         data-bs-target="#carouselExampleIndicators"
-         data-bs-slide="prev">
-         <span class="carousel-control-prev-icon inline-block bg-no-repeat" aria-hidden="true"></span>
-         <span class="visually-hidden">Previous</span>
-      </button>
-      <button
-         class="carousel-control-next absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline right-0"
-         type="button"
-         data-bs-target="#carouselExampleIndicators"
-         data-bs-slide="next">
-         <span class="carousel-control-next-icon inline-block bg-no-repeat" aria-hidden="true"></span>
-         <span class="visually-hidden">Next</span>
-      </button>
    </div>
 </div>
-
-<div class="container mx-auto px-60 py-8">
-   <h1 class=" text-3xl text-center py-8 bg-white">E-commerce de Crypto Moedas</h1>
-   <hr>
-</div>
-
-
 
 <!-- List Products -->
 <div class="container mx-auto px-60 py-8 grid grid-cols-3 gap-20">
@@ -113,13 +62,8 @@
                <h3 class="text-lg">{{ $product->name }}</h3>
                <hr>
                <p class="space-x-2">
-                  <span class="text-2xl font-semibold">R$ {{ ($product->price) }}</span>
+                  <span class="text-2xl font-semibold">R$ {{ formatMoney($product->price) }}</span>
                </p>
-               <p class="space-x-2">
-                  <span class="text-sm line-through text-gray-500">R$ {{ ($product->price) }}</span>
-                  <span class="text-sm text-red-700">10% off</span>
-               </p>
-
                <div class="px-4 py-2 bg-red-600 hover:bg-amber-600 text-center text-sm text-white rounded duration-300">
                   <form action="{{ route('cart.store',['id' => $product->id ]) }}" method="POST">
                      @csrf

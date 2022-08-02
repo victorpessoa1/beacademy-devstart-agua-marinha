@@ -60,13 +60,12 @@
             </div>
             <div>
               <label class="font-medium inline-block mb-3 text-sm uppercase">Taxa</label>
-              <input type="text" id="promo" placeholder="R$ 12,00" class="p-2 text-sm w-full" disabled>
+              <input type="text" id="promo" placeholder="R$ 25,00" class="p-2 text-sm w-full" disabled>
             </div>
-
             <div class="border-t mt-8">
               <div class="flex font-semibold justify-between py-6 text-sm uppercase">
                 <span>Total</span>
-                <span>R$ {{ formatMoney(sumPrices(session()->get('cart'))+12) }}</span>
+                <span>R$ {{ formatMoney(sumPrices(session()->get('cart'))+25) }}</span>
               </div>
 
               <form action="{{ route('order.create') }}" method="POST" class="px-4 py-2 bg-green-600  text-center text-sm text-white rounded duration-300">
@@ -80,12 +79,10 @@
         </div>
       </div>
   @else
-    <div class="container mx-auto px-60 py-8" style="margin-top:-60px;"> 
-      <h1 class="font-mono text-4xl text-center py-8 bg-white">Seu Carrinho está vazio.
-
-      </h1>    
-      <div class="container mx-auto px-60 py-8 bg-white" style="margin-top:-35px; ">
-        <img src="https://c.tenor.com/lx2WSGRk8bcAAAAC/pulp-fiction-john-travolta.gif" alt="">
+    <div class="container mx-auto px-60 py-8" style="margin-top:-60px;">
+      <h1 class="text-4xl text-center py-8 bg-white">Nenhuma Crypto Selecionada.</h1>
+      <div class="container mx-auto px-60 py-8 bg-white">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbbmMSzpLTOaz-rgl60Hlm6ZMHi_f8CKtUmQ&usqp=CAU" alt="carrinho vazio">
       </div>
       <div class="container mx-auto px-60 py-8 bg-white" style="margin-top:-35px; ">
         <a href="/" class="flex justify-center bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">Voltar</a>
