@@ -1,6 +1,7 @@
 <?php
 
-function formatDateTime($date){
+function formatDateTime($date)
+{
     return \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('d/m/Y - H:i');
 }
 
