@@ -18,11 +18,11 @@
                             <ul class="navbar-nav mr-auto">
                                 @if(Auth::user()->is_admin == 1)
                                 <li class="nav-item active">
-                                    <a class="nav-link text-white" href="/users">Usuários</a>
+                                    <a class="nav-link text-white" href="/site.users">Usuários</a>
                                 </li>
                                 @endif
                                 <li class="nav-item">
-                                    <a class="nav-link text-white" href="/products">Produtos</a>
+                                    <a class="nav-link text-white" href="/site.products">Produtos</a>
                                 </li>
                                     <li class="nav-item active">
                                         <a class="nav-link text-white" href="{{ route('orders.show', Auth::user()->id) }}">Meus Pedidos</a>

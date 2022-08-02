@@ -9,11 +9,11 @@ class Product extends Model
 {
     use HasFactory;
 
-    public $timestamps = false; 
+    public $timestamps = false;
 
     protected $fillable = [
         'image',
-        'name', 
+        'name',
         'description',
         'quantity',
         'price',
@@ -23,5 +23,21 @@ class Product extends Model
     public function checkouts()
     {
         return $this->hasMany(Checkout::class);
+    }
+
+    public function getProducts(string $search = null)
+    {
+        $products = $this->where(function ($query) use ($search) {
+            if ($search) {
+                $query->where('name', 'LIKE', "%{$search}%");
+            }
+        })->paginate(6);
+
+        return $products;
+    }
+
+    public function orders()
+    {
+        return $this->belongsToMany(Order::class);
     }
 }

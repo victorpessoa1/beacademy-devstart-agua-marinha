@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use function GuzzleHttp\default_user_agent;
 
-class UserController extends Controller
+class UsersController extends Controller
 {
     public function __construct(User $user)
     {
@@ -42,7 +42,7 @@ class UserController extends Controller
         $this->model->create($data);
 
         $request->session()->flash('create', 'Usuário cadastrado com sucesso!');
-        
+
         return redirect()->route('users.index');
     }
 

@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 
 
-class ProductController extends Controller
+class ProductsController extends Controller
 {
     public function __construct(Product $product)
     {
@@ -48,13 +48,13 @@ class ProductController extends Controller
       $this->model->create($data);
 
       $Request->session()->flash('create', 'Produto cadastrado com sucesso!');
-  
+
       return redirect()->route('products.index');
     }
 
     public function edit($id)
     {
-      if(!$products = $this->model->find($id)) 
+      if(!$products = $this->model->find($id))
         return redirect()->route('products.index');
 
       return view('products.edit', compact('products'));
@@ -62,15 +62,15 @@ class ProductController extends Controller
 
     public function update(CreateProductFormRequest $Request, $id)
     {
-      if (!$products = $this->model->find($id)) 
+      if (!$products = $this->model->find($id))
         return redirect()->route('products.index');
       $data = $Request->all();
 
-      if ($Request->password) 
+      if ($Request->password)
         $data['password'] = bcrypt($Request->password);
       $products->update($data);
-    
-  
+
+
       return redirect()->route('products.index')->with('edit', 'Produto atualizados com sucesso!');
     }
 
@@ -78,9 +78,9 @@ class ProductController extends Controller
     {
       if (!$products = $this->model->find($id))
         return redirect()->route('products.index');
-  
+
         $products->delete();
-  
+
       return redirect()->route('products.index')->with('destroy', 'Produto deletado com sucesso!');
     }
   }

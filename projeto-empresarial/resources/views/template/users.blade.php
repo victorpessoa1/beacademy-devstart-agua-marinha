@@ -20,10 +20,10 @@
                         <div class="col-9">
                             <ul class="navbar-nav mr-auto">
                                 <li class="nav-item active">
-                                    <a class="nav-link text-white" href="/users">Usuarios</a>
+                                    <a class="nav-link text-white" href="/site.users">Usuarios</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-white" href="/products">Produtos</a>
+                                    <a class="nav-link text-white" href="/site.products">Produtos</a>
                                 </li>
                             </ul>
                         </div>
