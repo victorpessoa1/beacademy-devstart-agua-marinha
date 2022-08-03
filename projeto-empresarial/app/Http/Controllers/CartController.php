@@ -13,7 +13,7 @@ class CartController extends Controller
 {
 
     protected $order;
-    protected $orderUser;
+    protected $ordersUsers;
     protected $ordersProducts;
 
     public function __construct(Order $order, OrdersProducts $ordersProducts, OrdersUsers $ordersUsers)

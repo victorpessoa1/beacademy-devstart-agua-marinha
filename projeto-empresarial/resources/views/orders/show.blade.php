@@ -78,6 +78,4 @@
 </div>
 {{ $products->links() }}
 
-
-
 @endsection

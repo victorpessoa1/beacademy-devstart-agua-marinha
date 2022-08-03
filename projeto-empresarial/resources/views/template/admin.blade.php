@@ -12,11 +12,11 @@
         <nav class="bg-gray-100 border-gray-200 px-2 sm:px-4 py-2.5 ">
             <div class="container flex flex-wrap justify-between items-center mx-auto">
                 <a href="/" class="flex items-center">
-                    <img src="{{url('/logo/logo.jpg')}}" class="mr-3 h-6 sm:h-9" alt="Água Marinha" />
+                    <img src="{{url('/logo/logo.png')}}" class="sm:h-16" alt="Água Marinha" />
                 </a>
                 <div class="flex items-center md:order-2">
                     <button type="button" id="user-menu-button" aria-expanded="false" type="button" data-dropdown-toggle="dropdown">
-                         {{ Auth::user()->name }}
+                         Admin: {{ Auth::user()->name }}
                     </button>
                     <!-- Dropdown menu -->
                     <div class="hidden z-50 my-4 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600" id="dropdown">

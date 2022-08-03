@@ -67,7 +67,7 @@
                             lg:mt-0
                             mr-1
                         " href="/">
-                        <img src="{{url('/logo/logo.jpg')}}" style="height: 30px" alt=""
+                        <img src="{{url('/logo/logo.png')}}" class="sm:h-16" alt=""
                         loading="lazy" />
                     </a>
                 </div>
@@ -92,8 +92,9 @@
                     <div class="dropdown relative">
                         <a class="dropdown-toggle flex items-center hidden-arrow" href="#" id="dropdownMenuButton2" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="{{ url(Auth::user()->image ?? '') }}" class="rounded-full"
-                                style="height: 25px; width: 25px" alt="" loading="lazy" />
+{{--                            <img src="{{ url(Auth::user()->image ?? '') }}" class="rounded-full"--}}
+{{--                                style="height: 25px; width: 25px" alt="" loading="lazy" />--}}
+                            {{ Auth::user()->name }}
                         </a>
                         <ul class="
                         dropdown-menu
@@ -145,7 +146,7 @@
                             bg-transparent
                             text-gray-700
                             hover:bg-gray-100
-                        " href="#">Minhas Compras</a>
+                        " href="{{ route('orders.show', Auth::user()->id) }}">Minhas Compras</a>
                         </li>
                         <li>
                             <form method="POST" action="{{ route('logout') }}">

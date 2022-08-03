@@ -47,15 +47,15 @@
     </div>
 @endif
 
-<h1 class="text-2xl font-semibold leading-tigh py-2">
-    Listagem dos Pedidos
+<h1 class="text-2xl font-semibold leading-tigh py-2 mb-2">
+    Listagem de Pedidos
 </h1>
 
-<a href="{{ route('orders.create') }}" class="bg-black rounded-full text-white px-5 py-3 text-sm">Adicionar Novo Pedido</a>
+<a href="{{ route('orders.create') }}" class="shadow bg-blue-600 hover:bg-blue-400 focus:shadow-outline focus:outline-none rounded-lg text-white px-5 py-3 text-sm">Novo Pedido</a>
 
 <form action="{{ route('orders.index') }}" method="get" class="py-8">
     <input type="text" name="search" placeholder="Pesquisar" class="md:w-1/6 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500">
-    <button class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">Pesquisar</button>
+    <button class="shadow bg-blue-600 hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white py-2 px-4 rounded">Pesquisar</button>
 </form>
 
 <table class="min-w-full leading-normal shadow-md rounded-lg overflow-hidden ">
@@ -97,7 +97,7 @@
             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">{{ $order->created_at }}</td>
             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">{{ $order->updated_at }}</td>
             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                <a href="{{ route('orders.show', $order->id) }}" class="bg-orange-200 rounded-full py-2 px-6">Detalhes</a>
+                <a href="{{ route('orders.show', $order->id) }}" class="shadow bg-blue-600 hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white py-2 px-6 rounded">Detalhes</a>
             </td>
         </tr>
     @endforeach

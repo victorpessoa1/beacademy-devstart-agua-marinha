@@ -15,13 +15,13 @@ class OrdersController extends Controller
 {
     protected $order;
     protected $order_user;
-    protected $order_product;
+    protected $orders_products;
 
-    public function __construct(Order $order, OrdersProducts $order_product, OrdersUsers $orders_users)
+    public function __construct(Order $order, OrdersProducts $orders_products, OrdersUsers $orders_users)
     {
         $this->model = $order;
-        $this->order_user = $orders_users;
-        $this->order_product = $order_product;
+        $this->orders_users = $orders_users;
+        $this->orders_products = $orders_products;
     }
 
     public function index(Request $request)
@@ -69,7 +69,7 @@ class OrdersController extends Controller
                 'product_id' => $order->product_id,
             ];
 
-            $this->order_product->create($data_product);
+            $this->orders_products->create($data_product);
 
             $data_user = [
                 'order_id' => $order->id,

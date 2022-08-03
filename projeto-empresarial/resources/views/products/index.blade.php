@@ -47,15 +47,15 @@
         </div>
     @endif
 
-    <h1 class="text-2xl font-semibold leading-tigh py-2">
+    <h1 class="text-2xl font-semibold leading-tigh py-2 mb-3">
         Listagem de produtos
     </h1>
 
-    <a href="{{ route('products.create') }}" class="bg-black rounded-full text-white px-5 py-3 text-sm">Adicionar Novo Produto</a>
+    <a href="{{ route('products.create') }}" class="bg-blue-600 hover:bg-blue-400 focus:shadow-outline focus:outline-none rounded-lg text-white px-5 py-3 text-sm">Novo Produto</a>
 
     <form action="{{ route('products.index') }}" method="get" class="py-8">
         <input type="text" name="search" placeholder="Pesquisar" class="md:w-1/6 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500">
-        <button class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">Pesquisar</button>
+        <button class="shadow bg-blue-600 hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white py-2 px-4 rounded">Pesquisar</button>
     </form>
 
     <table class="min-w-full leading-normal shadow-md rounded-lg overflow-hidden">
@@ -70,11 +70,6 @@
                 class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
             >
                 Nome
-            </th>
-            <th
-                class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
-            >
-                Tipo
             </th>
             <th
                 class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
@@ -105,13 +100,12 @@
                     @endif
                 </td>
                 <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">{{ $product->name }}</td>
-                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">{{ $product->type }}</td>
                 <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">R$ {{ formatMoney($product->price) }}</td>
                 <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                    <a href="{{ route('products.edit', $product->id) }}" class="bg-green-200 rounded-full py-2 px-6">Editar</a>
+                    <a href="{{ route('products.edit', $product->id) }}" class="shadow bg-blue-600 hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white py-2 px-6 rounded">Editar</a>
                 </td>
                 <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                    <a href="{{ route('products.show', $product->id) }}" class="bg-orange-200 rounded-full py-2 px-6">Detalhes</a>
+                    <a href="{{ route('products.show', $product->id) }}" class="shadow bg-blue-600 hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white py-2 px-6 rounded">Detalhes</a>
                 </td>
             </tr>
         @endforeach
