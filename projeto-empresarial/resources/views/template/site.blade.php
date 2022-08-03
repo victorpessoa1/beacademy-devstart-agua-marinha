@@ -21,7 +21,7 @@
     }
     </script>
 </head>
-<body class="bg-gray-50">
+<body class="bg-dark-50">
     <div class="container mx-auto px-60 py-8">
         <nav class="
             relative

@@ -1,6 +1,6 @@
 @extends('template.site')
 
-@section('title', 'eBooks - Carrinho')
+@section('title', 'Crypto - Carrinho')
 
 @section('content')
   @if(!is_null(session()->get('cart')))

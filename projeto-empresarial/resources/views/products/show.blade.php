@@ -1,48 +1,35 @@
-@extends('template.products')
-@section('title', $title)
-@section('body')
+@extends('template.admin')
 
-<div class="container">
-    <h1>Produtos {{ $products->name }}</h1>
-    <table class="table">
-        <thead class="text-center">
-            <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Nome</th>
-                <th scope="col">Descrição</th>
-                <th scope="col">Quantidade</th>
-                <th scope="col">Preço</th>
-                <th scope="col">Preço de Venda</th>
-                <th scope="col" colspan="2" >Ações</th>
-            </tr>
-        </thead>
-        <tbody class="text-center">
-            <tr>
-                <th scope="row">{{ $products->id }}</th>
-                <td>{{ $products->name }}</td>
-                <td>{{ $products->description }}</td>
-                <td>{{ $products->quantity }}</td>
-                <td>{{ $products->price }}</td>
-                <td>{{ $products->saleprice }}</td>
-                @if (Auth::user()->is_admin == 1)
-                <td>
-                    <a href="{{ route('products.edit', $products->id) }}" class="btn btn btn-sm btn-outline-primary">Editar</a>
-                </td>
-                <td>
-                       <form action="{{ route('products.destroy', $products->id) }}" method="POST">
-                            @method('DELETE')
-                            @csrf
-                        <button type="submit" class="btn btn-sm btn-outline-primary">Deletar</button>
-                     </form>
-                </td>
-                @endif
-                <td>
+@section('title', 'Produto')
 
-                    <a href="{{ route('orders.create') }}" class="btn btn btn-sm btn-outline-primary">Comprar</a>
+@section('content')
 
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+
+    <div class="flex justify-center">
+        <h1 class="text-2xl font-semibold leading-tigh py-2">ID:  {{ $product->id }}</h1>
+    </div>
+
+    <div class="flex justify-center">
+        <div class="flex flex-col md:flex-row md:max-w-xl rounded-lg bg-white shadow-lg">
+            <img class=" w-full h-96 md:h-auto object-cover md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg" src="{{ url($product->image) }}" alt="" />
+            <div class="p-6 flex flex-col justify-start">
+                <h5 class="text-gray-900 text-xl font-medium mb-2">{{ $product->name }}</h5>
+                <p class="text-gray-700 text-base mb-4">
+                    {{ $product->description }}
+                </p>
+                <p class="text-gray-600 text-xs">Identificação: {{ $product->id }}</p>
+                <p class="text-gray-600 text-xs">Preço: R$ {{ formatMoney($product->price) }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex justify-center">
+        <form action="{{ route('products.destroy', $product->id) }}" method="POST" class="py-12">
+            @method('DELETE')
+            @csrf
+            <button type="submit" class="rounded-full bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4" >Deletar</button>
+        </form>
+    </div>
+
+
 @endsection

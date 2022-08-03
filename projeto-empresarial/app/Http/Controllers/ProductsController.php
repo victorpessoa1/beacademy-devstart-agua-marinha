@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreateProductFormRequest;
-use Illuminate\Http\Request;
 use App\Models\Product;
+use Exception;
+use Illuminate\Http\Request;
 
 
 class ProductsController extends Controller
@@ -16,19 +16,24 @@ class ProductsController extends Controller
 
     public function index(Request $request)
     {
-        $products = Product::all();
+        $products = $this->model->getProducts(
+            $request->search ?? ''
+        );
 
-         return view('products.index', compact('products'));
+        return view('products.index', compact('products'));
     }
 
     public function show($id)
     {
-        if(!$products = Product::find($id))
-          return redirect()->route('products.index');
 
-        $title = 'Produto ' .$products->name;
+        $product = Product::find($id);
 
-        return view('products.show', compact('products', 'title'));
+        if($product){
+            return view('products.show', compact('product'));
+        }else{
+            throw new Exception('Usuário não encontrado');
+        }
+
     }
 
     public function create()
@@ -36,51 +41,63 @@ class ProductsController extends Controller
         return view('products.create');
     }
 
-    public function store(CreateProductFormRequest $Request)
+    public function store(Request $request)
     {
-      $data = $Request->all();
-      if($Request->image){
-        $file = $Request['image'];
-        $path = $file->store('profile', 'public');
-        $data['image'] = $path;
-      }
+        $data = $request->all();
+        $data['password'] = bcrypt($request->password);
 
-      $this->model->create($data);
+        if ($request->image) {
+            $data['image'] = $request->image->store('products', ['disk' => 'images']);
+        }
 
-      $Request->session()->flash('create', 'Produto cadastrado com sucesso!');
+        $this->model->create($data);
 
-      return redirect()->route('products.index');
+        return redirect()->route('products.index')->with('create', 'Produto Cadastrado com Sucesso!');
+
     }
 
     public function edit($id)
     {
-      if(!$products = $this->model->find($id))
-        return redirect()->route('products.index');
+        if (!$product = $this->model->find($id))
+            return redirect()->route('products.index');
 
-      return view('products.edit', compact('products'));
+        return view('products.edit', compact('product'));
     }
 
-    public function update(CreateProductFormRequest $Request, $id)
+    public function update(Request $request, $id)
     {
-      if (!$products = $this->model->find($id))
+        if (!$product = $this->model->find($id))
+            return redirect()->route('products.index');
+
+        $data = $request->only('name', 'email');
+        if ($request->password)
+            $data['password'] = bcrypt($request->password);
+
+        if ($request->image) {
+            if (file_exists($product->image)) {
+                unlink($product->image);
+            }
+            $data['image'] = $request->image->store('products', ['disk' => 'images']);
+        }
+
+        $data['is_admin'] = $request->admin ? 1 : 0;
+
+        $product->update($data);
+
+        $request->session()->flash('update', 'Produto atualizado com Sucesso!');
+
         return redirect()->route('products.index');
-      $data = $Request->all();
-
-      if ($Request->password)
-        $data['password'] = bcrypt($Request->password);
-      $products->update($data);
-
-
-      return redirect()->route('products.index')->with('edit', 'Produto atualizados com sucesso!');
     }
 
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-      if (!$products = $this->model->find($id))
+        if (!$product = $this->model->find($id))
+            return redirect()->route('products.index');
+
+        $product->delete();
+
+        $request->session()->flash('destroy', 'Produto excluido com Sucesso!');
+
         return redirect()->route('products.index');
-
-        $products->delete();
-
-      return redirect()->route('products.index')->with('destroy', 'Produto deletado com sucesso!');
     }
-  }
+}

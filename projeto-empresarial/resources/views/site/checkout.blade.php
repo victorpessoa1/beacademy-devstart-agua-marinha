@@ -1,13 +1,13 @@
 @extends('template.site')
 
-@section('title', 'eBooks - Pagamento')
+@section('title', 'Crypto - Pagamento')
 
 @section('content')
         <!-- Checkout form -->
         <section aria-labelledby="payment-heading" class="flex-auto overflow-y-auto px-4 pt-12 pb-16 sm:px-6 sm:pt-16 lg:px-8 lg:pt-0 lg:pb-24 ">
             <div class="max-w-lg mx-auto">
                 <div id="btnPay">
-                    <h2 class="flex justify-center py-40 text-xl">Escolha o Método de Pagamento</h2>
+                    <h2 class="flex justify-center py-40 text-xl">Escolha a Forma de Pagamento</h2>
                     <div class="flex justify-center">
                         <div>
                             <button onclick="showTicket()" type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-20 rounded">
@@ -68,7 +68,9 @@
                             </div>
                             </div>
                             <input type="hidden" name="transaction_type" value="card" />
+                            @if(isset($order))
                             <input type="hidden" name="transaction_amount" value="{{ $order[0]['amount'] }}" />
+                            @endif
                             <input type="hidden" name="transaction_installments" value="2" />
                         </div>
 

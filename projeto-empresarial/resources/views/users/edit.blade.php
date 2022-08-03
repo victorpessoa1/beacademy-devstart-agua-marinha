@@ -1,42 +1,15 @@
-@extends('template.users')
-@section('title', "Usuário {$user->name}")
-@section('body')
+@extends('template.admin')
 
-    <h1>Editar Usuário: {{ $user->id ." - ". $user->name }}</h1>
-<br>
-    @if($errors->any())
-        <div class="alert alert-danger" role="alert">
-            @foreach($errors->all() as $error)
-                {{ $error }} <br>
-            @endforeach
-        </div>
-    @endif
+@section('title', "Editar o Usuário {$user->name}")
 
-    <form action="{{ route('users.update', $user->id) }}" method="POST">
-        @method('PUT')
-        @csrf
-        <div class="mb-3">
-            <label for="name" class="form-label">Nome</label>
-            <input type="text" class="form-control" id="name" name="name" value="{{ $user->name }}">
-        </div>
-        <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" name="email" value="{{ $user->email }}">
-        </div>
-        <div class="mb-3">
-            <label for="phone" class="form-label">Telefone</label>
-            <input type="text" class="form-control" id="phone" name="phone" value="{{ $user->phone }}">
-        </div>
-        <div class="mb-3">
-            <label for="address" class="form-label">Endereço</label>
-            <input type="text" class="form-control" id="address" name="address" value="{{ $user->address }}">
-        </div>
-        <div class="mb-3">
-            <label for="password" class="form-label">Senha</label>
-            <input type="password" class="form-control" id="password" name="password">
-        </div>
-        <a href="{{ route('users.index', $user->id) }}" class="btn btn-sm btn-outline-primary">Voltar </a>
-        <button type="submit" class="btn btn-outline-primary btn-sm">Atualizar</button>
-    </form>
+@section('content')
+<h1 class="text-2xl font-semibold leading-tigh py-2">Editar o Usuário {{ $user->name }}</h1>
+
+@include('includes.validations-form')
+
+<form action="{{ route('users.update', $user->id) }}" method="post" enctype="multipart/form-data">
+    @method('PUT')
+    @include('users._partials.form')
+</form>
 
 @endsection

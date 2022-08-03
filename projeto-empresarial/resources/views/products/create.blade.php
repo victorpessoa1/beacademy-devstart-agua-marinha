@@ -1,45 +1,14 @@
-@extends('template.products')
-@section('title', 'Novos Produtos')
-@section('body')
+@extends('template.admin')
 
+@section('title', 'Novo Produto')
 
-<h1>Cadastro de Produto</h1>
-  @if($errors->any())
-<div class="alert alert-successs" role="alert">
-  @foreach($errors->all() as $error)
-  {{ $error }} <br>
-  @endforeach
-</div>
+@section('content')
+    <h1 class="text-2xl font-semibold leading-tigh py-2">Novo Produto</h1>
 
-@endif
+    @include('includes.validations-form')
 
-<form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
-  @csrf
-  <div class="mb-3">
-    <label for="name" class="form-label">Nome da Crypto</label>
-    <input type="text" class="form-control" id="name" name="name" aria-describedby="Name">
-  </div>
-  <div>
-    <label for="description" class="form-label">Descrição</label>
-    <input type="text" class="form-control" id="description" name="description">
-  </div>
-  <div>
-    <label for="quantity" class="form-label">Quantidade</label>
-    <input type="text" class="form-control" id="quantity" name="quantity">
-  </div>
-  <div>
-    <label for="price" class="form-label">Preço</label>
-    <input type="text" class="form-control" id="price" name="price">
-  </div>
-  <div>
-    <label for="saleprice" class="form-label">Preço de Venda</label>
-    <input type="text" class="form-control" id="saleprice" name="saleprice">
-  </div>
-  <div>
-    <label for="image" class="form-label">Selecione uma imagem</label>
-    <input type="file" class="form-control" id="image" name="image" />
-  </div>
-  <button type="submit" class="btn btn-sm btn-outline-primary mt-3">Cadastrar</button>
-  <button type="submit" class="btn btn-sm btn-outline-primary mt-3">Cancelar</button>
-</form>
+    <form action="{{ route('products.store') }}" method="post" enctype="multipart/form-data">
+        @include('products._partials.form')
+    </form>
+
 @endsection

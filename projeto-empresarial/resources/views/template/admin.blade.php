@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title') - Água Marinha</title>
+    <title>@yield('title') - E-commerce Cryptos</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-50">
@@ -12,7 +12,7 @@
         <nav class="bg-gray-100 border-gray-200 px-2 sm:px-4 py-2.5 ">
             <div class="container flex flex-wrap justify-between items-center mx-auto">
                 <a href="/" class="flex items-center">
-                    <img src="{{url('/logo/logo-btc.png')}}" class="mr-3 h-6 sm:h-9" alt="Água Marinha" />
+                    <img src="{{url('/logo/logo.jpg')}}" class="mr-3 h-6 sm:h-9" alt="Água Marinha" />
                 </a>
                 <div class="flex items-center md:order-2">
                     <button type="button" id="user-menu-button" aria-expanded="false" type="button" data-dropdown-toggle="dropdown">
@@ -80,11 +80,11 @@
                                 </li>
                                 <li>
                                     <div class="px-4">
-{{--                                        <a href="{{ route('home.orders') }}">--}}
-{{--                                            <span class="block text-sm font-medium text-gray-500 truncate dark:text-gray-400">--}}
-{{--                                                Pedidos--}}
-{{--                                            </span>--}}
-{{--                                        </a>--}}
+                                        <a href="{{ route('home.orders') }}">
+                                            <span class="block text-sm font-medium text-gray-500 truncate dark:text-gray-400">
+                                                Pedidos
+                                            </span>
+                                        </a>
                                     </div>
                                 </li>
                             @endif
