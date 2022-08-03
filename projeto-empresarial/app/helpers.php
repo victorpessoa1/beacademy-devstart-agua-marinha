@@ -24,7 +24,7 @@ function percentDiscount($price)
 function sumPrices($data)
 {
     $amount = 0;
-
+    
     foreach ($data as  $value) {
         $amount += $value['price'];
     }

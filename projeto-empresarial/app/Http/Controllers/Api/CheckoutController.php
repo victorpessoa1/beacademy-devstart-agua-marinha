@@ -40,7 +40,7 @@ class CheckoutController extends Controller
     public function ticket(Request $request)
     {
 
-        $response = Http::withHeaders([
+        $response = Http::withoutVerifying()->withOptions(["verify"=>false])->withHeaders([
             'Content-Type' => 'application/json',
             'token' => 'UGFyYWLDqW5zLCB2b2PDqiBlc3RhIGluZG8gYmVtIQ=='
         ])->post('https://tracktools.vercel.app/api/checkout', [
