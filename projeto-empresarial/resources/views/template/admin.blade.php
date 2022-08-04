@@ -43,15 +43,6 @@
                                 </li>
                                 <li>
                                     <div class="px-4">
-                                        <a href="{{ route('orders.index') }}">
-                                            <span class="block text-sm font-medium text-gray-500 truncate dark:text-gray-400">
-                                                Pedidos
-                                            </span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="px-4">
                                         <a href="{{ route('products.index') }}">
                                             <span class="block text-sm font-medium text-gray-500 truncate dark:text-gray-400">
                                                 Produtos
@@ -80,7 +71,7 @@
                                 </li>
                                 <li>
                                     <div class="px-4">
-                                        <a href="{{ route('home.orders') }}">
+                                        <a href="{{ route('orders.index') }}">
                                             <span class="block text-sm font-medium text-gray-500 truncate dark:text-gray-400">
                                                 Pedidos
                                             </span>

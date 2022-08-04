@@ -36,20 +36,7 @@
     <h1 class=" text-3xl text-center text-white py-8 bg-blue-400 font-extrabold">E-commerce de Crypto Moedas</h1>
     <hr>
 </div>
-<div class="container mx-auto px-60" style="margin-top:-35px;">
-   <div id="carouselExampleIndicators" class="carousel slide relative" data-bs-ride="carousel">
-      <div class="carousel-indicators absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-4">
-      </div>
-      <div class="carousel-inner relative w-auto overflow-hidden">
-         <div class="carousel-item active float-none w-full">
-{{--            <img--}}
-{{--            src="https://fia.com.br/wp-content/uploads/2022/06/criptomoedas-o-que-sao-para-que-servem-como-investir.jpg"--}}
-{{--            class="block w-20"--}}
-{{--            />--}}
-         </div>
-      </div>
-   </div>
-</div>
+<div class="container mx-auto px-60" style="margin-top:-35px;"></div>
 
 <!-- List Products -->
 <div class="container mx-auto px-60 py-8 grid grid-cols-3 gap-20">
@@ -84,7 +71,6 @@
 <div class="container mx-auto px-60 py-8">
    {{ $products->links() }}
    <br>
-   <hr>
 </div>
 @endsection
 
