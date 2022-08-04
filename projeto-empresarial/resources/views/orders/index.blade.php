@@ -51,7 +51,7 @@
     Listagem de Pedidos
 </h1>
 
-<a href="{{ route('orders.create') }}" class="shadow bg-blue-600 hover:bg-blue-400 focus:shadow-outline focus:outline-none rounded-lg text-white px-5 py-3 text-sm">Novo Pedido</a>
+<a href="{{ route('admin.index') }}" class="bg-blue-600 hover:bg-blue-400 focus:shadow-outline focus:outline-none rounded-lg text-white px-5 py-3 text-sm">Painel Admin</a>
 
 <form action="{{ route('orders.index') }}" method="get" class="py-8">
     <input type="text" name="search" placeholder="Pesquisar" class="md:w-1/6 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500">
@@ -79,13 +79,13 @@
           <th
             class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
           >
-           Data Atualização
+           Valor
           </th>
-          <th
-            class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
-          >
-            Detalhes
-          </th>
+{{--          <th--}}
+{{--            class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"--}}
+{{--          >--}}
+{{--            Detalhes--}}
+{{--          </th>--}}
 
         </tr>
       </thead>
@@ -95,10 +95,10 @@
             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">{{ $order->id }}</td>
             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">{{ $order->user->name }}</td>
             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">{{ $order->created_at }}</td>
-            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">{{ $order->updated_at }}</td>
-            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                <a href="{{ route('orders.show', $order->id) }}" class="shadow bg-blue-600 hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white py-2 px-6 rounded">Detalhes</a>
-            </td>
+            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">R$ {{ formatMoney($order->amount) }}</td>
+{{--            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">--}}
+{{--                <a href="{{ route('orders.show', $order->id) }}" class="shadow bg-blue-600 hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white py-2 px-6 rounded">Detalhes</a>--}}
+{{--            </td>--}}
         </tr>
     @endforeach
     </tbody>

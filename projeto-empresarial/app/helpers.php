@@ -5,6 +5,10 @@ function formatDateTime($date)
     return \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('d/m/Y - H:i');
 }
 
+function formatDate($date)
+{
+    return \Carbon\Carbon::createFromFormat('Y-m-d', $date)->format('d/m/Y');
+}
 function formatMoney($money)
 {
     $clean_money = str_replace('.','',$money);
@@ -24,7 +28,7 @@ function percentDiscount($price)
 function sumPrices($data)
 {
     $amount = 0;
-    
+
     foreach ($data as  $value) {
         $amount += $value['price'];
     }

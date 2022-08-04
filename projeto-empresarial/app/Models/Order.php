@@ -52,7 +52,8 @@ class Order extends Model
     {
         $order = new Order();
         $order->user_id = Auth::id();
-        $order->amount = $data->amount+5;
+        $order->amount = $data->amount+25;
+        $order->product_id = $data->product_id;
         $order->save();
 
         return $order;

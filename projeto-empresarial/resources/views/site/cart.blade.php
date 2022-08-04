@@ -70,6 +70,7 @@
               <form action="{{ route('order.create') }}" method="POST" class="px-4 py-2 bg-green-600  text-center text-sm text-white rounded duration-300">
                 @csrf
                 <input type="hidden" name="amount" value="{{ sumPrices(session()->get('cart')) }}">
+                  <input type="hidden" name="product_id" value="{{ session()->get('product_id') }}">
                 <button type="submit" class="">Comprar</button>
               </form>
             </div>

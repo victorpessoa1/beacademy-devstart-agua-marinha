@@ -3,21 +3,30 @@
 @section('title', 'Usuário')
 
 @section('content')
-<h1 class="text-2xl font-semibold leading-tigh py-2">Usuário</h1>
+<h1 class="text-2xl font-semibold leading-tigh py-2">Dados do Usuário {{ $user->name }}</h1>
 
-<figure class="bg-slate-100 rounded-xl p-8 dark:bg-slate-800 bg-[url('{{ url("background/tech.png")}}')] bg-no-repeat ">
-  <img class="w-24 h-24 rounded-full mx-auto" src="{{ $user->image}}" alt="{{ $user->name }}" width="384" height="512">
-  <div class="pt-6 text-center space-y-4">
+<figure class=" rounded-xl p-6 bg-[url('{{ url("background/bg_user.jpg")}}')] bg-no-repeat ">
+
+  <div class="pt-6 text-left space-y-4">
     <figcaption class="font-medium py-2">
-    <div class="text-white">
-      Código: {{ $user->id }}
-      </div>
-      <div class="text-white">
-        Nome: {{ $user->name }}
-      </div>
-      <div class="text-white">
-      Email: {{ $user->email }}
-      </div>
+        <div class="text-white">
+            Código: {{ $user->id }}
+        </div>
+        <div class="text-white">
+            Nome: {{ $user->name }}
+        </div>
+        <div class="text-white">
+            Email: {{ $user->email }}
+        </div>
+        <div class="text-white">
+            Endereço: {{ $user->address }}
+        </div>
+        <div class="text-white">
+            Telefone: {{ $user->phone }}
+        </div>
+        <div class="text-white">
+            Data de Nascimento: {{ formatDate($user->dtbirth) }}
+        </div>
     </figcaption>
   </div>
 </figure>

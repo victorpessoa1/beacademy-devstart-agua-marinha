@@ -8,7 +8,7 @@
     Pedido Nº: {{ $order->id }}
 </h1>
 <h2 class=" leading-tigh py-2">
-    Valor Total R$ {{ formatMoney($order->amount) }}
+    Valor Total R$ {{ $order->amount }}
 </h2>
 
 <form action="{{ route('orders.index') }}" method="get" class="py-8">
@@ -28,11 +28,6 @@
             class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
           >
             Nome
-          </th>
-          <th
-            class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
-          >
-            Tipo
           </th>
           <th
             class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
@@ -64,7 +59,6 @@
                 @endif
             </td>
             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">{{ $product->name }}</td>
-            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">{{ $product->type }}</td>
             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">R$ {{ formatMoney($product->price) }}</td>
             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">{{ date('H:i',strtotime( $order->created_at)) }}</td>
             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">{{ date('d/m/Y', strtotime( $order->created_at)) }}</td>

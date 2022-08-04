@@ -131,8 +131,9 @@
                             hover:bg-gray-100
                         " href="#"></a>
                         </li>
-                        <li>
-                            <a class="
+                            @if(Auth::user()->is_admin == 1)
+                            <li>
+                                <a class="
                             dropdown-item
                             text-sm
                             py-2
@@ -144,8 +145,24 @@
                             bg-transparent
                             text-gray-700
                             hover:bg-gray-100
-                        " href="{{ route('orders.show', Auth::user()->id) }}">Minhas Compras</a>
-                        </li>
+                        " href="{{ route('admin.index') }}">Painel Admin</a>
+                            </li>
+                            @endif
+{{--                        <li>--}}
+{{--                            <a class="--}}
+{{--                            dropdown-item--}}
+{{--                            text-sm--}}
+{{--                            py-2--}}
+{{--                            px-4--}}
+{{--                            font-normal--}}
+{{--                            block--}}
+{{--                            w-full--}}
+{{--                            whitespace-nowrap--}}
+{{--                            bg-transparent--}}
+{{--                            text-gray-700--}}
+{{--                            hover:bg-gray-100--}}
+{{--                        " href="{{ route('orders.show', Auth::user()->id) }}">Minhas Compras</a>--}}
+{{--                        </li>--}}
                         <li>
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
