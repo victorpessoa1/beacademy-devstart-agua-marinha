@@ -69,7 +69,7 @@ class ProductsController extends Controller
         if (!$product = $this->model->find($id))
             return redirect()->route('products.index');
 
-        $data = $request->only('name', 'email');
+        $data = $request->only('name', 'email','price');
         if ($request->password)
             $data['password'] = bcrypt($request->password);
 

@@ -9,21 +9,15 @@ class Product extends Model
 {
     use HasFactory;
 
-    public $timestamps = false;
 
     protected $fillable = [
-        'image',
         'name',
-        'description',
-        'quantity',
         'price',
-        'saleprice'
+        'description',
+        'image'
+
     ];
 
-    public function checkouts()
-    {
-        return $this->hasMany(Checkout::class);
-    }
 
     public function getProducts(string $search = null)
     {
